@@ -3,22 +3,24 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
 namespace Team6A_LibraryManagementSystem
 {
-    public partial class MemberDetailsForm : FormTemplates.DetailsTemplate
+    public partial class Window_Popup_Details : Template_Master
     {
-        public MemberDetailsForm()
+        public Window_Popup_Details()
         {
             InitializeComponent();
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        public Window_Popup_Details(UserControl uc)
         {
+            InitializeComponent();
+            panelPopup.Controls.Add(uc);
 
         }
-
     }
 }

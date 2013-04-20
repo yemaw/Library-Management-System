@@ -1,6 +1,6 @@
 ﻿namespace Team6A_LibraryManagementSystem
 {
-    partial class MemberListForm
+    partial class Window_Popup_Details
     {
         /// <summary>
         /// Required designer variable.
@@ -28,37 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtAddMember = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panelPopup = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
-            // txtAddMember
+            // panelPopup
             // 
-            this.txtAddMember.Location = new System.Drawing.Point(464, 387);
-            this.txtAddMember.Name = "txtAddMember";
-            this.txtAddMember.Size = new System.Drawing.Size(75, 23);
-            this.txtAddMember.TabIndex = 3;
-            this.txtAddMember.Text = "Add Member";
-            this.txtAddMember.UseVisualStyleBackColor = true;
-            this.txtAddMember.Click += new System.EventHandler(this.txtAddMember_Click);
+            this.panelPopup.Location = new System.Drawing.Point(12, 12);
+            this.panelPopup.Name = "panelPopup";
+            this.panelPopup.Size = new System.Drawing.Size(841, 435);
+            this.panelPopup.TabIndex = 0;
             // 
-            // MemberListForm
+            // Window_Popup_Details
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(611, 422);
-            this.Controls.Add(this.txtAddMember);
-            this.Name = "MemberListForm";
-            this.Controls.SetChildIndex(this.txtAddMember, 0);
-            this.Controls.SetChildIndex(this.pictureBox1, 0);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(865, 459);
+            this.Controls.Add(this.panelPopup);
+            this.Name = "Window_Popup_Details";
+            this.Text = "Window_Popup_Details";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button txtAddMember;
-
+        private System.Windows.Forms.Panel panelPopup;
     }
 }

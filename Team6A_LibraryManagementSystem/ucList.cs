@@ -1,21 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace FormTemplates
+namespace Team6A_LibraryManagementSystem
 {
-    public partial class ListingTemplate : Form
+    public partial class ucList : UserControl
     {
-        public ListingTemplate()
+        public ucList()
         {
             InitializeComponent();
         }
-
-        
     }
 }

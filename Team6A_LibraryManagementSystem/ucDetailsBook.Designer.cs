@@ -1,13 +1,13 @@
 ﻿namespace Team6A_LibraryManagementSystem
 {
-    partial class BookDetailsForm
+    partial class ucDetailsBook
     {
-        /// <summary>
+        /// <summary> 
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
+        /// <summary> 
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -20,18 +20,19 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Component Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
+            this.lblBookTitlePageTitle = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lblBookDescription = new System.Windows.Forms.Label();
             this.lblBookTitle = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtBookDescription = new System.Windows.Forms.TextBox();
             this.lblAuthor = new System.Windows.Forms.Label();
             this.lblPublisherName = new System.Windows.Forms.Label();
             this.txtPublisherName = new System.Windows.Forms.TextBox();
@@ -39,17 +40,26 @@
             this.lblPublishDate = new System.Windows.Forms.Label();
             this.dtpPublishDate = new System.Windows.Forms.DateTimePicker();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtRentalPriceDecimal = new System.Windows.Forms.TextBox();
+            this.txtRentalPricePoint = new System.Windows.Forms.TextBox();
             this.lblRentalPricePerDay = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.lblBookTitlePageTitle = new System.Windows.Forms.Label();
+            this.txtBookTitle = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // lblBookTitlePageTitle
+            // 
+            this.lblBookTitlePageTitle.AutoSize = true;
+            this.lblBookTitlePageTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBookTitlePageTitle.Location = new System.Drawing.Point(125, 36);
+            this.lblBookTitlePageTitle.Name = "lblBookTitlePageTitle";
+            this.lblBookTitlePageTitle.Size = new System.Drawing.Size(127, 26);
+            this.lblBookTitlePageTitle.TabIndex = 3;
+            this.lblBookTitlePageTitle.Text = "Book Name";
             // 
             // tableLayoutPanel1
             // 
@@ -58,7 +68,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.14834F));
             this.tableLayoutPanel1.Controls.Add(this.lblBookDescription, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblBookTitle, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.textBox2, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.txtBookDescription, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblAuthor, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.lblPublisherName, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.txtPublisherName, 1, 3);
@@ -67,8 +77,8 @@
             this.tableLayoutPanel1.Controls.Add(this.dtpPublishDate, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.splitContainer1, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.lblRentalPricePerDay, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(59, 64);
+            this.tableLayoutPanel1.Controls.Add(this.txtBookTitle, 1, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(130, 74);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 7;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.20513F));
@@ -82,8 +92,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(391, 242);
-            this.tableLayoutPanel1.TabIndex = 0;
-            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
+            this.tableLayoutPanel1.TabIndex = 2;
             // 
             // lblBookDescription
             // 
@@ -93,7 +102,6 @@
             this.lblBookDescription.Size = new System.Drawing.Size(88, 13);
             this.lblBookDescription.TabIndex = 1;
             this.lblBookDescription.Text = "Book Description";
-            this.lblBookDescription.Click += new System.EventHandler(this.label2_Click);
             // 
             // lblBookTitle
             // 
@@ -104,13 +112,13 @@
             this.lblBookTitle.TabIndex = 1;
             this.lblBookTitle.Text = "Book Title";
             // 
-            // textBox2
+            // txtBookDescription
             // 
-            this.textBox2.Location = new System.Drawing.Point(150, 34);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(238, 69);
-            this.textBox2.TabIndex = 2;
+            this.txtBookDescription.Location = new System.Drawing.Point(150, 34);
+            this.txtBookDescription.Multiline = true;
+            this.txtBookDescription.Name = "txtBookDescription";
+            this.txtBookDescription.Size = new System.Drawing.Size(238, 69);
+            this.txtBookDescription.TabIndex = 2;
             // 
             // lblAuthor
             // 
@@ -167,29 +175,28 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.textBox3);
+            this.splitContainer1.Panel1.Controls.Add(this.txtRentalPriceDecimal);
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.textBox4);
+            this.splitContainer1.Panel2.Controls.Add(this.txtRentalPricePoint);
             this.splitContainer1.Size = new System.Drawing.Size(150, 42);
             this.splitContainer1.SplitterDistance = 55;
             this.splitContainer1.TabIndex = 10;
             // 
-            // textBox3
+            // txtRentalPriceDecimal
             // 
-            this.textBox3.Location = new System.Drawing.Point(3, 3);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(41, 20);
-            this.textBox3.TabIndex = 0;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.txtRentalPriceDecimal.Location = new System.Drawing.Point(3, 3);
+            this.txtRentalPriceDecimal.Name = "txtRentalPriceDecimal";
+            this.txtRentalPriceDecimal.Size = new System.Drawing.Size(41, 20);
+            this.txtRentalPriceDecimal.TabIndex = 0;
             // 
-            // textBox4
+            // txtRentalPricePoint
             // 
-            this.textBox4.Location = new System.Drawing.Point(3, 3);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(42, 20);
-            this.textBox4.TabIndex = 0;
+            this.txtRentalPricePoint.Location = new System.Drawing.Point(3, 3);
+            this.txtRentalPricePoint.Name = "txtRentalPricePoint";
+            this.txtRentalPricePoint.Size = new System.Drawing.Size(42, 20);
+            this.txtRentalPricePoint.TabIndex = 0;
             // 
             // lblRentalPricePerDay
             // 
@@ -200,30 +207,20 @@
             this.lblRentalPricePerDay.TabIndex = 9;
             this.lblRentalPricePerDay.Text = "Rental Price Per Day";
             // 
-            // textBox1
+            // txtBookTitle
             // 
-            this.textBox1.Location = new System.Drawing.Point(150, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(238, 20);
-            this.textBox1.TabIndex = 0;
+            this.txtBookTitle.Location = new System.Drawing.Point(150, 3);
+            this.txtBookTitle.Name = "txtBookTitle";
+            this.txtBookTitle.Size = new System.Drawing.Size(238, 20);
+            this.txtBookTitle.TabIndex = 0;
             // 
-            // lblBookTitlePageTitle
-            // 
-            this.lblBookTitlePageTitle.AutoSize = true;
-            this.lblBookTitlePageTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBookTitlePageTitle.Location = new System.Drawing.Point(54, 26);
-            this.lblBookTitlePageTitle.Name = "lblBookTitlePageTitle";
-            this.lblBookTitlePageTitle.Size = new System.Drawing.Size(127, 26);
-            this.lblBookTitlePageTitle.TabIndex = 1;
-            this.lblBookTitlePageTitle.Text = "Book Name";
-            // 
-            // BookDetailsForm
+            // ucDetailsBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(581, 522);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lblBookTitlePageTitle);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "BookDetailsForm";
+            this.Name = "ucDetailsBook";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -239,22 +236,21 @@
 
         #endregion
 
+        private System.Windows.Forms.Label lblBookTitlePageTitle;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label lblBookTitle;
         private System.Windows.Forms.Label lblBookDescription;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label lblBookTitle;
+        private System.Windows.Forms.TextBox txtBookDescription;
         private System.Windows.Forms.Label lblAuthor;
         private System.Windows.Forms.Label lblPublisherName;
         private System.Windows.Forms.TextBox txtPublisherName;
         private System.Windows.Forms.TextBox txtAuthor;
         private System.Windows.Forms.Label lblPublishDate;
         private System.Windows.Forms.DateTimePicker dtpPublishDate;
-        private System.Windows.Forms.Label lblRentalPricePerDay;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label lblBookTitlePageTitle;
-
+        private System.Windows.Forms.TextBox txtRentalPriceDecimal;
+        private System.Windows.Forms.TextBox txtRentalPricePoint;
+        private System.Windows.Forms.Label lblRentalPricePerDay;
+        private System.Windows.Forms.TextBox txtBookTitle;
     }
 }

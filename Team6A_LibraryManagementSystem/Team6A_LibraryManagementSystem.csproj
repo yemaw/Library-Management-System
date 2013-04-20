@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{4F3090B2-9FD1-44E5-A860-DCD57D2B2A83}</ProjectGuid>
+    <ProjectGuid>{FAC599C8-E244-4F1F-82F2-9B82A91DE0C9}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Team6A_LibraryManagementSystem</RootNamespace>
@@ -46,44 +46,73 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BookDetailsForm.cs">
+    <Compile Include="ucDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucDetails.Designer.cs">
+      <DependentUpon>ucDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucDetailsBook.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucDetailsBook.Designer.cs">
+      <DependentUpon>ucDetailsBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucDetialsMember.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucDetialsMember.Designer.cs">
+      <DependentUpon>ucDetialsMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucListBooks.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucListBooks.Designer.cs">
+      <DependentUpon>ucListBooks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucList.Designer.cs">
+      <DependentUpon>ucList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucListMember.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucListMember.Designer.cs">
+      <DependentUpon>ucListMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Window_Master.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BookDetailsForm.Designer.cs">
-      <DependentUpon>BookDetailsForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="BookListForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BookListForm.Designer.cs">
-      <DependentUpon>BookListForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Configs.cs" />
-    <Compile Include="MemberDetailsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MemberDetailsForm.Designer.cs">
-      <DependentUpon>MemberDetailsForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MemberListForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MemberListForm.Designer.cs">
-      <DependentUpon>MemberListForm.cs</DependentUpon>
+    <Compile Include="Window_Master.Designer.cs">
+      <DependentUpon>Window_Master.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="BookDetailsForm.resx">
-      <DependentUpon>BookDetailsForm.cs</DependentUpon>
+    <Compile Include="Template_Master.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Template_Master.Designer.cs">
+      <DependentUpon>Template_Master.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Window_Popup_Details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Window_Popup_Details.Designer.cs">
+      <DependentUpon>Window_Popup_Details.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ucDetails.resx">
+      <DependentUpon>ucDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BookListForm.resx">
-      <DependentUpon>BookListForm.cs</DependentUpon>
+    <EmbeddedResource Include="ucDetailsBook.resx">
+      <DependentUpon>ucDetailsBook.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MemberDetailsForm.resx">
-      <DependentUpon>MemberDetailsForm.cs</DependentUpon>
+    <EmbeddedResource Include="ucDetialsMember.resx">
+      <DependentUpon>ucDetialsMember.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MemberListForm.resx">
-      <DependentUpon>MemberListForm.cs</DependentUpon>
+    <EmbeddedResource Include="ucListBooks.resx">
+      <DependentUpon>ucListBooks.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -95,6 +124,18 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Template_Master.resx">
+      <DependentUpon>Template_Master.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucList.resx">
+      <DependentUpon>ucList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Window_Master.resx">
+      <DependentUpon>Window_Master.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Window_Popup_Details.resx">
+      <DependentUpon>Window_Popup_Details.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -106,13 +147,22 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <None Include="Resources\book_add.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FormTemplates\FormTemplates.csproj">
-      <Project>{EDCFB8CC-FD45-4111-99B1-536A9200FACA}</Project>
-      <Name>FormTemplates</Name>
-    </ProjectReference>
+    <None Include="Resources\user_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\book.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\advance_search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

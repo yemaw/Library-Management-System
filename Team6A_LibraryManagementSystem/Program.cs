@@ -15,7 +15,7 @@ namespace Team6A_LibraryManagementSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new BookListForm());
+            Application.Run(new Window_Master());
         }
     }
 }
