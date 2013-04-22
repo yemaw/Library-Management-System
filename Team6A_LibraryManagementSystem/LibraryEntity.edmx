@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="LibraryDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="LibraryDBModelStoreContainer">
+          <EntitySet Name="Books" EntityType="LibraryDBModel.Store.Books" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BooksModels" EntityType="LibraryDBModel.Store.BooksModels" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LibTrans" EntityType="LibraryDBModel.Store.LibTrans" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Members" EntityType="LibraryDBModel.Store.Members" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Books_BooksModels" Association="LibraryDBModel.Store.FK_Books_BooksModels">
+            <End Role="BooksModels" EntitySet="BooksModels" />
+            <End Role="Books" EntitySet="Books" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LibTrans_Books" Association="LibraryDBModel.Store.FK_LibTrans_Books">
+            <End Role="Books" EntitySet="Books" />
+            <End Role="LibTrans" EntitySet="LibTrans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LibTrans_Members" Association="LibraryDBModel.Store.FK_LibTrans_Members">
+            <End Role="Members" EntitySet="Members" />
+            <End Role="LibTrans" EntitySet="LibTrans" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Books">
+          <Key>
+            <PropertyRef Name="BookID" />
+          </Key>
+          <Property Name="BookID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BookModelID" Type="int" Nullable="false" />
+          <Property Name="BookStatus" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BooksModels">
+          <Key>
+            <PropertyRef Name="BookModelId" />
+          </Key>
+          <Property Name="BookModelId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BookTitle" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="BookDescription" Type="varchar" MaxLength="50" />
+          <Property Name="Author" Type="varchar" Nullable="false" MaxLength="15" />
+          <Property Name="PublisherName" Type="varchar" MaxLength="15" />
+          <Property Name="PublishDate" Type="date" />
+          <Property Name="BookCategory" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="MaxAvailableDayToRent" Type="smallint" />
+        </EntityType>
+        <EntityType Name="LibTrans">
+          <Key>
+            <PropertyRef Name="TransactionID" />
+          </Key>
+          <Property Name="TransactionID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BookID" Type="int" Nullable="false" />
+          <Property Name="MemberID" Type="int" Nullable="false" />
+          <Property Name="LendDate" Type="date" Nullable="false" />
+          <Property Name="ReturnDate" Type="date" Nullable="false" />
+          <Property Name="ChargeAmount" Type="numeric" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Members">
+          <Key>
+            <PropertyRef Name="MemberID" />
+          </Key>
+          <Property Name="MemberID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MemberName" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Address" Type="varchar" MaxLength="50" />
+          <Property Name="PhoneNumber" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="NIRC" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="Email" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <Association Name="FK_Books_BooksModels">
+          <End Role="BooksModels" Type="LibraryDBModel.Store.BooksModels" Multiplicity="1" />
+          <End Role="Books" Type="LibraryDBModel.Store.Books" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BooksModels">
+              <PropertyRef Name="BookModelId" />
+            </Principal>
+            <Dependent Role="Books">
+              <PropertyRef Name="BookModelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LibTrans_Books">
+          <End Role="Books" Type="LibraryDBModel.Store.Books" Multiplicity="1" />
+          <End Role="LibTrans" Type="LibraryDBModel.Store.LibTrans" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Books">
+              <PropertyRef Name="BookID" />
+            </Principal>
+            <Dependent Role="LibTrans">
+              <PropertyRef Name="BookID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LibTrans_Members">
+          <End Role="Members" Type="LibraryDBModel.Store.Members" Multiplicity="1" />
+          <End Role="LibTrans" Type="LibraryDBModel.Store.LibTrans" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Members">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="LibTrans">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LibraryDBModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="LibraryDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Books" EntityType="LibraryDBModel.Book" />
+          <EntitySet Name="BooksModels" EntityType="LibraryDBModel.BooksModel" />
+          <EntitySet Name="LibTrans" EntityType="LibraryDBModel.LibTran" />
+          <EntitySet Name="Members" EntityType="LibraryDBModel.Member" />
+          <AssociationSet Name="FK_Books_BooksModels" Association="LibraryDBModel.FK_Books_BooksModels">
+            <End Role="BooksModels" EntitySet="BooksModels" />
+            <End Role="Books" EntitySet="Books" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LibTrans_Books" Association="LibraryDBModel.FK_LibTrans_Books">
+            <End Role="Books" EntitySet="Books" />
+            <End Role="LibTrans" EntitySet="LibTrans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LibTrans_Members" Association="LibraryDBModel.FK_LibTrans_Members">
+            <End Role="Members" EntitySet="Members" />
+            <End Role="LibTrans" EntitySet="LibTrans" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Book">
+          <Key>
+            <PropertyRef Name="BookID" />
+          </Key>
+          <Property Name="BookID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BookModelID" Type="Int32" Nullable="false" />
+          <Property Name="BookStatus" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="BooksModel" Relationship="LibraryDBModel.FK_Books_BooksModels" FromRole="Books" ToRole="BooksModels" />
+          <NavigationProperty Name="LibTrans" Relationship="LibraryDBModel.FK_LibTrans_Books" FromRole="Books" ToRole="LibTrans" />
+        </EntityType>
+        <EntityType Name="BooksModel">
+          <Key>
+            <PropertyRef Name="BookModelId" />
+          </Key>
+          <Property Name="BookModelId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BookTitle" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="BookDescription" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Author" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="PublisherName" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="PublishDate" Type="DateTime" />
+          <Property Name="BookCategory" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="MaxAvailableDayToRent" Type="Int16" />
+          <NavigationProperty Name="Books" Relationship="LibraryDBModel.FK_Books_BooksModels" FromRole="BooksModels" ToRole="Books" />
+        </EntityType>
+        <EntityType Name="LibTran">
+          <Key>
+            <PropertyRef Name="TransactionID" />
+          </Key>
+          <Property Name="TransactionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BookID" Type="Int32" Nullable="false" />
+          <Property Name="MemberID" Type="Int32" Nullable="false" />
+          <Property Name="LendDate" Type="DateTime" Nullable="false" />
+          <Property Name="ReturnDate" Type="DateTime" Nullable="false" />
+          <Property Name="ChargeAmount" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <NavigationProperty Name="Book" Relationship="LibraryDBModel.FK_LibTrans_Books" FromRole="LibTrans" ToRole="Books" />
+          <NavigationProperty Name="Member" Relationship="LibraryDBModel.FK_LibTrans_Members" FromRole="LibTrans" ToRole="Members" />
+        </EntityType>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="MemberID" />
+          </Key>
+          <Property Name="MemberID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MemberName" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Address" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="PhoneNumber" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="NIRC" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="LibTrans" Relationship="LibraryDBModel.FK_LibTrans_Members" FromRole="Members" ToRole="LibTrans" />
+        </EntityType>
+        <Association Name="FK_Books_BooksModels">
+          <End Role="BooksModels" Type="LibraryDBModel.BooksModel" Multiplicity="1" />
+          <End Role="Books" Type="LibraryDBModel.Book" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BooksModels">
+              <PropertyRef Name="BookModelId" />
+            </Principal>
+            <Dependent Role="Books">
+              <PropertyRef Name="BookModelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LibTrans_Books">
+          <End Role="Books" Type="LibraryDBModel.Book" Multiplicity="1" />
+          <End Role="LibTrans" Type="LibraryDBModel.LibTran" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Books">
+              <PropertyRef Name="BookID" />
+            </Principal>
+            <Dependent Role="LibTrans">
+              <PropertyRef Name="BookID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LibTrans_Members">
+          <End Role="Members" Type="LibraryDBModel.Member" Multiplicity="1" />
+          <End Role="LibTrans" Type="LibraryDBModel.LibTran" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Members">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="LibTrans">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LibraryDBModelStoreContainer" CdmEntityContainer="LibraryDBEntities">
+          <EntitySetMapping Name="Books"><EntityTypeMapping TypeName="LibraryDBModel.Book"><MappingFragment StoreEntitySet="Books">
+            <ScalarProperty Name="BookID" ColumnName="BookID" />
+            <ScalarProperty Name="BookModelID" ColumnName="BookModelID" />
+            <ScalarProperty Name="BookStatus" ColumnName="BookStatus" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="BooksModels"><EntityTypeMapping TypeName="LibraryDBModel.BooksModel"><MappingFragment StoreEntitySet="BooksModels">
+            <ScalarProperty Name="BookModelId" ColumnName="BookModelId" />
+            <ScalarProperty Name="BookTitle" ColumnName="BookTitle" />
+            <ScalarProperty Name="BookDescription" ColumnName="BookDescription" />
+            <ScalarProperty Name="Author" ColumnName="Author" />
+            <ScalarProperty Name="PublisherName" ColumnName="PublisherName" />
+            <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
+            <ScalarProperty Name="BookCategory" ColumnName="BookCategory" />
+            <ScalarProperty Name="MaxAvailableDayToRent" ColumnName="MaxAvailableDayToRent" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="LibTrans"><EntityTypeMapping TypeName="LibraryDBModel.LibTran"><MappingFragment StoreEntitySet="LibTrans">
+            <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+            <ScalarProperty Name="BookID" ColumnName="BookID" />
+            <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+            <ScalarProperty Name="LendDate" ColumnName="LendDate" />
+            <ScalarProperty Name="ReturnDate" ColumnName="ReturnDate" />
+            <ScalarProperty Name="ChargeAmount" ColumnName="ChargeAmount" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Members"><EntityTypeMapping TypeName="LibraryDBModel.Member"><MappingFragment StoreEntitySet="Members">
+            <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+            <ScalarProperty Name="MemberName" ColumnName="MemberName" />
+            <ScalarProperty Name="Address" ColumnName="Address" />
+            <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+            <ScalarProperty Name="NIRC" ColumnName="NIRC" />
+            <ScalarProperty Name="Email" ColumnName="Email" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="LibraryEntity">
+        <EntityTypeShape EntityType="LibraryDBModel.Book" Width="1.5" PointX="3" PointY="1.375" Height="2.1496386321385703" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDBModel.BooksModel" Width="1.5" PointX="0.75" PointY="1" Height="3.0035204482078548" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDBModel.LibTran" Width="1.5" PointX="5.25" PointY="1.125" Height="2.7900499941905341" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDBModel.Member" Width="1.5" PointX="3" PointY="3.875" Height="2.5765795401732126" IsExpanded="true" />
+        <AssociationConnector Association="LibraryDBModel.FK_Books_BooksModels" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="2.4498193160692852" />
+          <ConnectorPoint PointX="3" PointY="2.4498193160692852" />
+        </AssociationConnector>
+        <AssociationConnector Association="LibraryDBModel.FK_LibTrans_Books" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="2.4498193160692852" />
+          <ConnectorPoint PointX="5.25" PointY="2.4498193160692852" />
+        </AssociationConnector>
+        <AssociationConnector Association="LibraryDBModel.FK_LibTrans_Members" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="5.1833152671818734" />
+          <ConnectorPoint PointX="6" PointY="5.1833152671818734" />
+          <ConnectorPoint PointX="6" PointY="3.9150499941905341" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

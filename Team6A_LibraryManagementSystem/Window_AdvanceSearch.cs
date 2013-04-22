@@ -9,17 +9,16 @@ using System.Windows.Forms;
 
 namespace Team6A_LibraryManagementSystem
 {
-    public partial class Window_Popup_Details : Template_Master
+    public partial class Window_AdvanceSearch : Template_Master
     {
-        public Window_Popup_Details()
+        public Window_AdvanceSearch()
         {
             InitializeComponent();
         }
 
-        public Window_Popup_Details(UserControl uc)
+        private void button1_Click(object sender, EventArgs e)
         {
-            InitializeComponent();
-            panelPopup.Controls.Add(uc);
+
         }
     }
 }

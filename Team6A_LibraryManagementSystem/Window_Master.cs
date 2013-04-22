@@ -14,6 +14,7 @@ namespace Team6A_LibraryManagementSystem
         public Window_Master()
         {
             InitializeComponent();
+            //this.FormBorderStyle = FormBorderStyle.FixedSingle; //make unresizable 
         }
 
         private void Window_Master_Load(object sender, EventArgs e)
@@ -38,6 +39,29 @@ namespace Team6A_LibraryManagementSystem
         {
             Window_Popup_Details pd = new Window_Popup_Details(new ucDetialsMember());
             pd.Show();
+        }
+
+        private void advanceSearchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Window_AdvanceSearch avs = new Window_AdvanceSearch();
+            avs.Show();
+        }
+
+        private void memberToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            panelMain.Controls.Clear();
+            panelMain.Controls.Add(new ucListMember());
+        }
+
+        private void bookToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            panelMain.Controls.Clear();
+            panelMain.Controls.Add(new ucListBooks());
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Team 6A \n Ruby \n Nay Chi \n DJ \n Ye Maw");
         }
 
     }

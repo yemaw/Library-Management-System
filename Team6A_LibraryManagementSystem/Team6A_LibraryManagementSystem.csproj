@@ -36,6 +36,9 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,6 +49,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntityBroker.cs" />
+    <Compile Include="LibraryData.cs" />
+    <Compile Include="LibraryEntity.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LibraryEntity.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="LibraryEntity1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LibraryEntity.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="EntityInstance.cs" />
     <Compile Include="ucDetails.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -76,11 +92,20 @@
     <Compile Include="ucList.Designer.cs">
       <DependentUpon>ucList.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucListBooks_Extend.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="ucListMember.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ucListMember.Designer.cs">
       <DependentUpon>ucListMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Window_AdvanceSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Window_AdvanceSearch.Designer.cs">
+      <DependentUpon>Window_AdvanceSearch.cs</DependentUpon>
     </Compile>
     <Compile Include="Window_Master.cs">
       <SubType>Form</SubType>
@@ -130,12 +155,23 @@
     <EmbeddedResource Include="ucList.resx">
       <DependentUpon>ucList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ucListMember.resx">
+      <DependentUpon>ucListMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Window_AdvanceSearch.resx">
+      <DependentUpon>Window_AdvanceSearch.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Window_Master.resx">
       <DependentUpon>Window_Master.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Window_Popup_Details.resx">
       <DependentUpon>Window_Popup_Details.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="App.Config" />
+    <EntityDeploy Include="LibraryEntity.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>LibraryEntity1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -163,6 +199,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\help.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6A.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

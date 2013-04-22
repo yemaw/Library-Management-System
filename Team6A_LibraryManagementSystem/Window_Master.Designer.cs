@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.panelMain = new System.Windows.Forms.Panel();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.memberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,41 +38,20 @@
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.monthlyReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.advanceSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panelMain.SuspendLayout();
-            this.menuStrip2.SuspendLayout();
+            this.MainMenu = new System.Windows.Forms.MenuStrip();
+            this.MainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMain
             // 
-            this.panelMain.Controls.Add(this.menuStrip1);
             this.panelMain.Location = new System.Drawing.Point(1, 40);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(862, 338);
+            this.panelMain.Size = new System.Drawing.Size(853, 338);
             this.panelMain.TabIndex = 0;
             this.panelMain.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMain_Paint);
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(862, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // menuStrip2
-            // 
-            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newToolStripMenuItem,
-            this.viewToolStripMenuItem,
-            this.reportsToolStripMenuItem,
-            this.helpToolStripMenuItem,
-            this.advanceSearchToolStripMenuItem});
-            this.menuStrip2.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(865, 26);
-            this.menuStrip2.TabIndex = 1;
-            this.menuStrip2.Text = "menuStrip2";
             // 
             // newToolStripMenuItem
             // 
@@ -89,16 +66,16 @@
             // 
             this.bookToolStripMenuItem.Image = global::Team6A_LibraryManagementSystem.Properties.Resources.book_add;
             this.bookToolStripMenuItem.Name = "bookToolStripMenuItem";
-            this.bookToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.bookToolStripMenuItem.Text = "Book";
+            this.bookToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.bookToolStripMenuItem.Text = "Add Book";
             this.bookToolStripMenuItem.Click += new System.EventHandler(this.bookToolStripMenuItem_Click);
             // 
             // memberToolStripMenuItem
             // 
             this.memberToolStripMenuItem.Image = global::Team6A_LibraryManagementSystem.Properties.Resources.user_add;
             this.memberToolStripMenuItem.Name = "memberToolStripMenuItem";
-            this.memberToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.memberToolStripMenuItem.Text = "Member";
+            this.memberToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.memberToolStripMenuItem.Text = "Add Member";
             this.memberToolStripMenuItem.Click += new System.EventHandler(this.memberToolStripMenuItem_Click);
             // 
             // viewToolStripMenuItem
@@ -114,15 +91,17 @@
             // 
             this.bookToolStripMenuItem1.Image = global::Team6A_LibraryManagementSystem.Properties.Resources.book;
             this.bookToolStripMenuItem1.Name = "bookToolStripMenuItem1";
-            this.bookToolStripMenuItem1.Size = new System.Drawing.Size(114, 22);
-            this.bookToolStripMenuItem1.Text = "Book";
+            this.bookToolStripMenuItem1.Size = new System.Drawing.Size(133, 22);
+            this.bookToolStripMenuItem1.Text = "Book List";
+            this.bookToolStripMenuItem1.Click += new System.EventHandler(this.bookToolStripMenuItem1_Click);
             // 
             // memberToolStripMenuItem1
             // 
             this.memberToolStripMenuItem1.Image = global::Team6A_LibraryManagementSystem.Properties.Resources.user;
             this.memberToolStripMenuItem1.Name = "memberToolStripMenuItem1";
-            this.memberToolStripMenuItem1.Size = new System.Drawing.Size(114, 22);
-            this.memberToolStripMenuItem1.Text = "Member";
+            this.memberToolStripMenuItem1.Size = new System.Drawing.Size(133, 22);
+            this.memberToolStripMenuItem1.Text = "Member List";
+            this.memberToolStripMenuItem1.Click += new System.EventHandler(this.memberToolStripMenuItem1_Click);
             // 
             // reportsToolStripMenuItem
             // 
@@ -140,9 +119,27 @@
             // 
             // helpToolStripMenuItem
             // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.helpToolStripMenuItem1,
+            this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(41, 22);
             this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // helpToolStripMenuItem1
+            // 
+            this.helpToolStripMenuItem1.Image = global::Team6A_LibraryManagementSystem.Properties.Resources.help;
+            this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
+            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(105, 22);
+            this.helpToolStripMenuItem1.Text = "Help";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // advanceSearchToolStripMenuItem
             // 
@@ -150,22 +147,34 @@
             this.advanceSearchToolStripMenuItem.Name = "advanceSearchToolStripMenuItem";
             this.advanceSearchToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.advanceSearchToolStripMenuItem.Text = "Advance Search";
+            this.advanceSearchToolStripMenuItem.Click += new System.EventHandler(this.advanceSearchToolStripMenuItem_Click);
+            // 
+            // MainMenu
+            // 
+            this.MainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newToolStripMenuItem,
+            this.viewToolStripMenuItem,
+            this.reportsToolStripMenuItem,
+            this.helpToolStripMenuItem,
+            this.advanceSearchToolStripMenuItem});
+            this.MainMenu.Location = new System.Drawing.Point(0, 0);
+            this.MainMenu.Name = "MainMenu";
+            this.MainMenu.Size = new System.Drawing.Size(859, 26);
+            this.MainMenu.TabIndex = 1;
+            this.MainMenu.Text = "menuStrip2";
             // 
             // Window_Master
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(865, 382);
+            this.ClientSize = new System.Drawing.Size(859, 434);
             this.Controls.Add(this.panelMain);
-            this.Controls.Add(this.menuStrip2);
-            this.MainMenuStrip = this.menuStrip1;
+            this.Controls.Add(this.MainMenu);
             this.Name = "Window_Master";
-            this.Text = "Form1";
+            this.Text = "Library Management System (Team 6A)";
             this.Load += new System.EventHandler(this.Window_Master_Load);
-            this.panelMain.ResumeLayout(false);
-            this.panelMain.PerformLayout();
-            this.menuStrip2.ResumeLayout(false);
-            this.menuStrip2.PerformLayout();
+            this.MainMenu.ResumeLayout(false);
+            this.MainMenu.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -174,8 +183,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panelMain;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.MenuStrip menuStrip2;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bookToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem memberToolStripMenuItem;
@@ -185,7 +192,10 @@
         private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem monthlyReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem advanceSearchToolStripMenuItem;
+        private System.Windows.Forms.MenuStrip MainMenu;
     }
 }
 
