@@ -35,14 +35,14 @@
             // 
             this.panelPopup.Location = new System.Drawing.Point(12, 12);
             this.panelPopup.Name = "panelPopup";
-            this.panelPopup.Size = new System.Drawing.Size(841, 435);
+            this.panelPopup.Size = new System.Drawing.Size(841, 568);
             this.panelPopup.TabIndex = 0;
             // 
             // Window_Popup_Details
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(865, 459);
+            this.ClientSize = new System.Drawing.Size(865, 584);
             this.Controls.Add(this.panelPopup);
             this.Name = "Window_Popup_Details";
             this.Text = "Window_Popup_Details";

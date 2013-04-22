@@ -119,6 +119,7 @@
             this.dgvBooksList.Size = new System.Drawing.Size(760, 302);
             this.dgvBooksList.TabIndex = 4;
             this.dgvBooksList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBooksList_CellClick);
+           
             // 
             // ucListBooks
             // 

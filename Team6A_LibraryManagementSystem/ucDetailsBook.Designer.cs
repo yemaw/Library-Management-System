@@ -253,15 +253,16 @@
             // dgvListOfCopies
             // 
             this.dgvListOfCopies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListOfCopies.Location = new System.Drawing.Point(3, 364);
+            this.dgvListOfCopies.Location = new System.Drawing.Point(6, 348);
             this.dgvListOfCopies.Name = "dgvListOfCopies";
-            this.dgvListOfCopies.Size = new System.Drawing.Size(828, 205);
+            this.dgvListOfCopies.Size = new System.Drawing.Size(828, 224);
             this.dgvListOfCopies.TabIndex = 7;
+            this.dgvListOfCopies.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListOfCopies_CellClick);
             // 
             // lblListOfCopies
             // 
             this.lblListOfCopies.AutoSize = true;
-            this.lblListOfCopies.Location = new System.Drawing.Point(4, 345);
+            this.lblListOfCopies.Location = new System.Drawing.Point(3, 332);
             this.lblListOfCopies.Name = "lblListOfCopies";
             this.lblListOfCopies.Size = new System.Drawing.Size(70, 13);
             this.lblListOfCopies.TabIndex = 8;

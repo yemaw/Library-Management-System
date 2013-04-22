@@ -29,6 +29,11 @@ namespace Team6A_LibraryManagementSystem
             
         }
 
+        public void RequestContent(UserControl uc){
+            panelMain.Controls.Clear();
+            panelMain.Controls.Add(uc);
+        }
+
         private void bookToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Window_Popup_Details pd = new Window_Popup_Details(new ucDetailsBook());

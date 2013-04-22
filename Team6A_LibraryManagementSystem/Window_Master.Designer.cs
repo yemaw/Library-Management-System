@@ -49,7 +49,7 @@
             // 
             this.panelMain.Location = new System.Drawing.Point(1, 40);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(853, 338);
+            this.panelMain.Size = new System.Drawing.Size(853, 416);
             this.panelMain.TabIndex = 0;
             this.panelMain.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMain_Paint);
             // 
@@ -135,7 +135,6 @@
             // 
             // aboutToolStripMenuItem
             // 
-            
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
             this.aboutToolStripMenuItem.Text = "About";
@@ -167,7 +166,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(859, 434);
+            this.ClientSize = new System.Drawing.Size(859, 455);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.MainMenu);
             this.Name = "Window_Master";

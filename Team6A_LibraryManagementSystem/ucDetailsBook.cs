@@ -44,6 +44,10 @@ namespace Team6A_LibraryManagementSystem
                 return;
             }
 
+            fillBookList();    
+        }
+
+        public void fillBookList() {
             lblBookTitlePageTitle.Text = bookmodel.BookTitle;
             txtBookTitle.Text = bookmodel.BookTitle;
             txtBookDescription.Text = bookmodel.BookDescription;
@@ -55,26 +59,31 @@ namespace Team6A_LibraryManagementSystem
             dt.Rows.Clear();
 
             var books = EntityBroker.getBooksByBookModelID(bookmodel.BookModelId);
-            
+
+            dgvListOfCopies.DataSource = null;
             foreach (Book book in books)
             {
-                string lend_date = "";
-                string status = (book.BookStatus == 0) ? "Rented" : (book.BookStatus == 1) ? "Avaiable" : "Not Avaiable";
-                //LibTran t = EntityBroker.getTransationByBookID(book.BookID);
-                
+                string lend_date_str = "-";
+                string due_date_str = "-";
 
-                if (book.BookStatus == 0) {
-                    lend_date = t.LendDate.ToString();    
+                string status = (book.BookStatus == 0) ? "Rented" : (book.BookStatus == 1) ? "Avaiable" : "Not Avaiable";
+                LibTran t = EntityBroker.getLastTransationByBookID(book.BookID);
+
+                if (book.BookStatus == 0)
+                {
+                    lend_date_str = t.LendDate.ToString("dd MMMM, yy");
+                    DateTime DueDate = t.LendDate.AddDays(Convert.ToDouble(bookmodel.MaxAvailableDayToRent));
+                    due_date_str = DueDate.ToString("dd MMMM, yy");
                 }
 
                 dt.Rows.Add(
                     book.BookID,
                     status,
-                    lend_date
-                    );
+                    lend_date_str,
+                    due_date_str
+                  );
             }
             dgvListOfCopies.DataSource = dt;
-            
         }
 
         private void txtBookTitle_KeyUp(object sender, KeyEventArgs e)
@@ -101,6 +110,24 @@ namespace Team6A_LibraryManagementSystem
                 MessageBox.Show("Error in updating. Error code :: {0}", i.ToString());
             }
         }
+
+        private void dgvListOfCopies_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridView dgv = sender as DataGridView;
+
+            if (dgv == null)
+                return;
+
+            if (dgv.CurrentRow.Selected)
+            {
+                int _book_id = Convert.ToInt32(dgv.SelectedRows[0].Cells["Book ID"].Value);
+                
+                Window_Transation_Lend w = new Window_Transation_Lend(_book_id);
+                w.Show();
+            }   
+
+        }
+
 
         
 
