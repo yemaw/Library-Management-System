@@ -122,7 +122,7 @@ namespace Team6A_LibraryManagementSystem
             {
                 int _book_id = Convert.ToInt32(dgv.SelectedRows[0].Cells["Book ID"].Value);
                 
-                Window_Transation_Lend w = new Window_Transation_Lend(_book_id);
+                Window_Popup_LendBook w = new Window_Popup_LendBook(_book_id);
                 w.Show();
             }   
 

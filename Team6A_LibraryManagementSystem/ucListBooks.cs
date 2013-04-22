@@ -13,6 +13,7 @@ namespace Team6A_LibraryManagementSystem
     {
         LibraryDBEntities entity;
         DataTable dt;
+        
 
         public ucListBooks()
         {
@@ -57,6 +58,7 @@ namespace Team6A_LibraryManagementSystem
             }
             
             dgvBooksList.DataSource = dt;
+            dgvBooksList.Refresh();
             
         }
 
@@ -126,12 +128,12 @@ namespace Team6A_LibraryManagementSystem
         {
             txtSearchByBookTitle.Text = "";
 
-            BooksModel bm = new BooksModel();
-            bm.BookTitle = "Hello Buddy";
-            bm.BookCategory = "Lit";
-            bm.Author = "Someone";
-            entity.AddToBooksModels(bm);
-            entity.SaveChanges();
+            //BooksModel bm = new BooksModel();
+            //bm.BookTitle = "Hello Buddy";
+            //bm.BookCategory = "Lit";
+            //bm.Author = "Someone";
+            //entity.AddToBooksModels(bm);
+            //entity.SaveChanges();
 
             var bookmodels = EntityBroker.getBooksModels();
             dt.Rows.Clear();

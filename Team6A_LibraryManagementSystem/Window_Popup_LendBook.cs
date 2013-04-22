@@ -9,15 +9,15 @@ using System.Windows.Forms;
 
 namespace Team6A_LibraryManagementSystem
 {
-    public partial class Window_Transation_Lend : Template_Master
+    public partial class Window_Popup_LendBook : Template_Master
     {
         LibraryDBEntities entity = new LibraryDBEntities();
-        public Window_Transation_Lend()
+        public Window_Popup_LendBook()
         {
             InitializeComponent();
         }
 
-        public Window_Transation_Lend(int bid)
+        public Window_Popup_LendBook(int bid)
         {
             InitializeComponent();
 
@@ -38,9 +38,12 @@ namespace Team6A_LibraryManagementSystem
             Book b = entity.Books.Where(x => x.BookID == t.BookID).First();
             b.BookStatus = 0 ;
             
-           
             entity.SaveChanges();
+            ucListBooks bl = new ucListBooks();
+            bl.Refresh();
+
             this.Close();
+            
         }
 
         

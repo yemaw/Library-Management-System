@@ -1,6 +1,6 @@
 ﻿namespace Team6A_LibraryManagementSystem
 {
-    partial class Window_Transation_Lend
+    partial class Window_Popup_LendBook
     {
         /// <summary>
         /// Required designer variable.
