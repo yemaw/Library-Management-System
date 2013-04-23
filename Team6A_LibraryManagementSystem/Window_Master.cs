@@ -16,6 +16,7 @@ namespace Team6A_LibraryManagementSystem
             InitializeComponent();
             //this.FormBorderStyle = FormBorderStyle.FixedSingle; //make unresizable 
         }
+        
 
         private void Window_Master_Load(object sender, EventArgs e)
         {
@@ -25,25 +26,31 @@ namespace Team6A_LibraryManagementSystem
         private void pnlMain_Paint(object sender, PaintEventArgs e)
         {
             ucListBooks booklist = new ucListBooks();
+            booklist.setMainWindowRefrence(this);
             panelMain.Controls.Add(booklist);
-            
-            
         }
 
-        public void RequestContent(UserControl uc){
+        public void RequestContentChange(UserControl uc){
             panelMain.Controls.Clear();
             panelMain.Controls.Add(uc);
         }
 
         private void bookToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Window_Popup_Details pd = new Window_Popup_Details(new ucDetailsBook());
+            ucDetailsBook bookmodel = new ucDetailsBook();
+            bookmodel.setMainWindowRefrence(this);
+            Window_Popup_Details pd = new Window_Popup_Details(bookmodel);
+            bookmodel.setParentWindowRefrence(pd);
             pd.Show();
         }
 
         private void memberToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Window_Popup_Details pd = new Window_Popup_Details(new ucDetialsMember());
+            ucDetialsMember ucdm = new ucDetialsMember();
+            ucdm.setMainWindowRefrence(this);
+            Window_Popup_Details pd = new Window_Popup_Details(ucdm);
+            ucdm.setParentWindowRefrence(pd);
+
             pd.Show();
         }
 
@@ -70,5 +77,6 @@ namespace Team6A_LibraryManagementSystem
             MessageBox.Show("Team 6A \n Ruby \n Nay Chi \n DJ \n Ye Maw");
         }
 
+        
     }
 }

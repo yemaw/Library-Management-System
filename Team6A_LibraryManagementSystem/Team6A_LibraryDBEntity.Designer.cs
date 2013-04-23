@@ -18,9 +18,9 @@ using System.Runtime.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("LibraryDBModel", "FK_Books_BooksModels", "BooksModels", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Team6A_LibraryManagementSystem.BooksModel), "Books", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Team6A_LibraryManagementSystem.Book), true)]
-[assembly: EdmRelationshipAttribute("LibraryDBModel", "FK_LibTrans_Books", "Books", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Team6A_LibraryManagementSystem.Book), "LibTrans", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Team6A_LibraryManagementSystem.LibTran), true)]
-[assembly: EdmRelationshipAttribute("LibraryDBModel", "FK_LibTrans_Members", "Members", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Team6A_LibraryManagementSystem.Member), "LibTrans", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Team6A_LibraryManagementSystem.LibTran), true)]
+[assembly: EdmRelationshipAttribute("Team6A_LibraryDBModel", "FK_Books_BooksModels", "BooksModels", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Team6A_LibraryManagementSystem.BooksModel), "Books", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Team6A_LibraryManagementSystem.Book), true)]
+[assembly: EdmRelationshipAttribute("Team6A_LibraryDBModel", "FK_LibTrans_Books", "Books", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Team6A_LibraryManagementSystem.Book), "LibTrans", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Team6A_LibraryManagementSystem.LibTran), true)]
+[assembly: EdmRelationshipAttribute("Team6A_LibraryDBModel", "FK_LibTrans_Members", "Members", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Team6A_LibraryManagementSystem.Member), "LibTrans", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Team6A_LibraryManagementSystem.LibTran), true)]
 
 #endregion
 
@@ -182,7 +182,7 @@ namespace Team6A_LibraryManagementSystem
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="LibraryDBModel", Name="Book")]
+    [EdmEntityTypeAttribute(NamespaceName="Team6A_LibraryDBModel", Name="Book")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Book : EntityObject
@@ -292,16 +292,16 @@ namespace Team6A_LibraryManagementSystem
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("LibraryDBModel", "FK_Books_BooksModels", "BooksModels")]
+        [EdmRelationshipNavigationPropertyAttribute("Team6A_LibraryDBModel", "FK_Books_BooksModels", "BooksModels")]
         public BooksModel BooksModel
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<BooksModel>("LibraryDBModel.FK_Books_BooksModels", "BooksModels").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<BooksModel>("Team6A_LibraryDBModel.FK_Books_BooksModels", "BooksModels").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<BooksModel>("LibraryDBModel.FK_Books_BooksModels", "BooksModels").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<BooksModel>("Team6A_LibraryDBModel.FK_Books_BooksModels", "BooksModels").Value = value;
             }
         }
         /// <summary>
@@ -313,13 +313,13 @@ namespace Team6A_LibraryManagementSystem
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<BooksModel>("LibraryDBModel.FK_Books_BooksModels", "BooksModels");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<BooksModel>("Team6A_LibraryDBModel.FK_Books_BooksModels", "BooksModels");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<BooksModel>("LibraryDBModel.FK_Books_BooksModels", "BooksModels", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<BooksModel>("Team6A_LibraryDBModel.FK_Books_BooksModels", "BooksModels", value);
                 }
             }
         }
@@ -330,18 +330,18 @@ namespace Team6A_LibraryManagementSystem
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("LibraryDBModel", "FK_LibTrans_Books", "LibTrans")]
+        [EdmRelationshipNavigationPropertyAttribute("Team6A_LibraryDBModel", "FK_LibTrans_Books", "LibTrans")]
         public EntityCollection<LibTran> LibTrans
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<LibTran>("LibraryDBModel.FK_LibTrans_Books", "LibTrans");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<LibTran>("Team6A_LibraryDBModel.FK_LibTrans_Books", "LibTrans");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<LibTran>("LibraryDBModel.FK_LibTrans_Books", "LibTrans", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<LibTran>("Team6A_LibraryDBModel.FK_LibTrans_Books", "LibTrans", value);
                 }
             }
         }
@@ -352,7 +352,7 @@ namespace Team6A_LibraryManagementSystem
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="LibraryDBModel", Name="BooksModel")]
+    [EdmEntityTypeAttribute(NamespaceName="Team6A_LibraryDBModel", Name="BooksModel")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class BooksModel : EntityObject
@@ -573,6 +573,30 @@ namespace Team6A_LibraryManagementSystem
         private Nullable<global::System.Int16> _MaxAvailableDayToRent;
         partial void OnMaxAvailableDayToRentChanging(Nullable<global::System.Int16> value);
         partial void OnMaxAvailableDayToRentChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> RentalPricePerDay
+        {
+            get
+            {
+                return _RentalPricePerDay;
+            }
+            set
+            {
+                OnRentalPricePerDayChanging(value);
+                ReportPropertyChanging("RentalPricePerDay");
+                _RentalPricePerDay = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("RentalPricePerDay");
+                OnRentalPricePerDayChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _RentalPricePerDay;
+        partial void OnRentalPricePerDayChanging(Nullable<global::System.Decimal> value);
+        partial void OnRentalPricePerDayChanged();
 
         #endregion
     
@@ -584,18 +608,18 @@ namespace Team6A_LibraryManagementSystem
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("LibraryDBModel", "FK_Books_BooksModels", "Books")]
+        [EdmRelationshipNavigationPropertyAttribute("Team6A_LibraryDBModel", "FK_Books_BooksModels", "Books")]
         public EntityCollection<Book> Books
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Book>("LibraryDBModel.FK_Books_BooksModels", "Books");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Book>("Team6A_LibraryDBModel.FK_Books_BooksModels", "Books");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Book>("LibraryDBModel.FK_Books_BooksModels", "Books", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Book>("Team6A_LibraryDBModel.FK_Books_BooksModels", "Books", value);
                 }
             }
         }
@@ -606,7 +630,7 @@ namespace Team6A_LibraryManagementSystem
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="LibraryDBModel", Name="LibTran")]
+    [EdmEntityTypeAttribute(NamespaceName="Team6A_LibraryDBModel", Name="LibTran")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class LibTran : EntityObject
@@ -794,16 +818,16 @@ namespace Team6A_LibraryManagementSystem
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("LibraryDBModel", "FK_LibTrans_Books", "Books")]
+        [EdmRelationshipNavigationPropertyAttribute("Team6A_LibraryDBModel", "FK_LibTrans_Books", "Books")]
         public Book Book
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Book>("LibraryDBModel.FK_LibTrans_Books", "Books").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Book>("Team6A_LibraryDBModel.FK_LibTrans_Books", "Books").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Book>("LibraryDBModel.FK_LibTrans_Books", "Books").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Book>("Team6A_LibraryDBModel.FK_LibTrans_Books", "Books").Value = value;
             }
         }
         /// <summary>
@@ -815,13 +839,13 @@ namespace Team6A_LibraryManagementSystem
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Book>("LibraryDBModel.FK_LibTrans_Books", "Books");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Book>("Team6A_LibraryDBModel.FK_LibTrans_Books", "Books");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Book>("LibraryDBModel.FK_LibTrans_Books", "Books", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Book>("Team6A_LibraryDBModel.FK_LibTrans_Books", "Books", value);
                 }
             }
         }
@@ -832,16 +856,16 @@ namespace Team6A_LibraryManagementSystem
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("LibraryDBModel", "FK_LibTrans_Members", "Members")]
+        [EdmRelationshipNavigationPropertyAttribute("Team6A_LibraryDBModel", "FK_LibTrans_Members", "Members")]
         public Member Member
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("LibraryDBModel.FK_LibTrans_Members", "Members").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("Team6A_LibraryDBModel.FK_LibTrans_Members", "Members").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("LibraryDBModel.FK_LibTrans_Members", "Members").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("Team6A_LibraryDBModel.FK_LibTrans_Members", "Members").Value = value;
             }
         }
         /// <summary>
@@ -853,13 +877,13 @@ namespace Team6A_LibraryManagementSystem
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("LibraryDBModel.FK_LibTrans_Members", "Members");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("Team6A_LibraryDBModel.FK_LibTrans_Members", "Members");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Member>("LibraryDBModel.FK_LibTrans_Members", "Members", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Member>("Team6A_LibraryDBModel.FK_LibTrans_Members", "Members", value);
                 }
             }
         }
@@ -870,7 +894,7 @@ namespace Team6A_LibraryManagementSystem
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="LibraryDBModel", Name="Member")]
+    [EdmEntityTypeAttribute(NamespaceName="Team6A_LibraryDBModel", Name="Member")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Member : EntityObject
@@ -1054,18 +1078,18 @@ namespace Team6A_LibraryManagementSystem
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("LibraryDBModel", "FK_LibTrans_Members", "LibTrans")]
+        [EdmRelationshipNavigationPropertyAttribute("Team6A_LibraryDBModel", "FK_LibTrans_Members", "LibTrans")]
         public EntityCollection<LibTran> LibTrans
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<LibTran>("LibraryDBModel.FK_LibTrans_Members", "LibTrans");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<LibTran>("Team6A_LibraryDBModel.FK_LibTrans_Members", "LibTrans");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<LibTran>("LibraryDBModel.FK_LibTrans_Members", "LibTrans", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<LibTran>("Team6A_LibraryDBModel.FK_LibTrans_Members", "LibTrans", value);
                 }
             }
         }

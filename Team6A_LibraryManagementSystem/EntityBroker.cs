@@ -7,7 +7,6 @@ namespace Team6A_LibraryManagementSystem
 {
     class EntityBroker
     {
-                
         //return the whole book model object
         public static IQueryable getBooksModels()
         {
@@ -79,21 +78,28 @@ namespace Team6A_LibraryManagementSystem
                     group t by t.BookID into g
                     select new
                     {
-                        Max = g.Max(b => b.TransactionID)
+                        Max = g.Max(b => b.TransactionID),
+                        
                     };
-
-            LibTran oTran = new LibTran();
+            
+            int i = 0;
             foreach (var data in q)
             {
-                oTran.TransactionID = data.Max;
+                i = data.Max;
+                break;
             }
-            return oTran;
+            LibTran tranObj = new LibTran();
+            if (i > 1) {
+                tranObj = entity.LibTrans.Where(x => x.TransactionID == i).First();
+            }
+            
+            return tranObj;
         }
 
         public static Book getBookByBookID(int _book_id) {
             LibraryDBEntities entity = new LibraryDBEntities();
 
-            Book b = entity.Books.Where(x => x.BookID == _book_id).First();
+            Book b = entity.Books.Where(x => x.BookID == _book_id).SingleOrDefault();
             return b;
         }
         
@@ -104,18 +110,106 @@ namespace Team6A_LibraryManagementSystem
             return m;
         }
 
-        //public static int getBookStatus(int _book_id) {
-        //    LibraryDBEntities entity = new LibraryDBEntities();
+        public static int updateBookModel(BooksModel bm) {
+            LibraryDBEntities entity = new LibraryDBEntities();
 
-        //    var query = from b in entity.Books
-        //             where b.BookID == _book_id
-        //             select new { b.BookID };
-        //    int i=3;
-        //    foreach (var q in query) {
-        //        i = Convert.ToInt32(q);
-        //    }
-        //    return i;
-        //}
+            var book_model_row = entity.BooksModels.Where(x => x.BookModelId == bm.BookModelId).SingleOrDefault();
 
+            book_model_row.BookTitle = bm.BookTitle;
+            book_model_row.BookDescription = bm.BookDescription;
+            book_model_row.Author = bm.Author;
+            book_model_row.PublisherName = bm.PublisherName;
+            book_model_row.PublishDate = bm.PublishDate;
+            book_model_row.BookCategory = bm.BookCategory;
+            book_model_row.MaxAvailableDayToRent = bm.MaxAvailableDayToRent;
+            book_model_row.RentalPricePerDay = bm.RentalPricePerDay;
+
+            int i = entity.SaveChanges();
+            return i;
+        }
+
+        public static int updateTransaction(LibTran tran) {
+            LibraryDBEntities entity = new LibraryDBEntities();
+
+            var tran_row = entity.LibTrans.Where(x => x.TransactionID == tran.TransactionID).SingleOrDefault();
+
+            tran_row.ReturnDate = tran.ReturnDate;
+            tran_row.ChargeAmount = tran.ChargeAmount;
+
+            int i = entity.SaveChanges();
+            return i;    
+        }
+
+        public static int updateBook(Book book) {
+            LibraryDBEntities entity = new LibraryDBEntities();
+
+            var book_row = entity.Books.Where(x => x.BookID == book.BookID).SingleOrDefault();
+
+            book_row.BookStatus = book.BookStatus;
+            
+            int i = entity.SaveChanges();
+            return i;
+        }
+
+        public static int createNewBook(Book _book) {
+            LibraryDBEntities entity = new LibraryDBEntities();
+            Book book = new Book();
+            book.BookModelID = _book.BookModelID;
+            book.BookStatus = _book.BookStatus;
+            entity.AddToBooks(book);
+            int i = entity.SaveChanges();
+            return i;
+        }
+
+
+        public static int createNewBookModel(BooksModel _book_model) {
+            LibraryDBEntities entity = new LibraryDBEntities();
+            BooksModel book_model = new BooksModel();
+            
+            book_model.BookTitle = _book_model.BookTitle;
+            book_model.BookDescription = _book_model.BookDescription;
+            book_model.Author = _book_model.Author;
+            book_model.PublisherName = _book_model.PublisherName;
+            book_model.BookCategory = _book_model.BookCategory;
+            book_model.PublishDate = _book_model.PublishDate;
+            book_model.RentalPricePerDay = _book_model.RentalPricePerDay;
+            book_model.MaxAvailableDayToRent = _book_model.MaxAvailableDayToRent;
+
+            entity.AddToBooksModels(book_model);
+            
+            int i = entity.SaveChanges();
+            return i;
+        }
+
+        public static int updateMember(Member _member) {
+            LibraryDBEntities entity = new LibraryDBEntities();
+            var member_row = entity.Members.Where(x => x.MemberID == _member.MemberID).SingleOrDefault();
+
+            member_row.MemberName = _member.MemberName;
+            member_row.Address = _member.Address;
+            member_row.PhoneNumber = _member.PhoneNumber;
+            member_row.NIRC = _member.NIRC;
+            member_row.Email = _member.Email;
+
+            int i = entity.SaveChanges();
+            return i;
+        }
+
+        public static int createMember(Member _member)
+        {
+            LibraryDBEntities entity = new LibraryDBEntities();
+            
+            Member mb = new Member();
+            mb.MemberName = _member.MemberName;
+            mb.Address = _member.Address;
+            mb.PhoneNumber = _member.PhoneNumber;
+            mb.NIRC = _member.NIRC;
+            mb.Email = _member.Email;
+
+            entity.AddToMembers(mb);
+
+            int i = entity.SaveChanges();
+            return i;
+        }
     }
 }

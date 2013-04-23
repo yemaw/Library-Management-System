@@ -49,20 +49,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BookController.cs" />
     <Compile Include="EntityBroker.cs" />
-    <Compile Include="LibraryData.cs" />
-    <Compile Include="LibraryEntity.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LibraryEntity.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="LibraryEntity1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LibraryEntity.edmx</DependentUpon>
-    </Compile>
     <Compile Include="EntityInstance.cs" />
+    <Compile Include="Team6A_LibraryDBEntity.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Team6A_LibraryDBEntity.edmx</DependentUpon>
+    </Compile>
     <Compile Include="ucDetails.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -93,15 +86,13 @@
     <Compile Include="ucList.Designer.cs">
       <DependentUpon>ucList.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucListBooks_Extend.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="ucListMember.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ucListMember.Designer.cs">
       <DependentUpon>ucListMember.cs</DependentUpon>
     </Compile>
+    <Compile Include="Validator.cs" />
     <Compile Include="Window_AdvanceSearch.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,10 +178,7 @@
       <DependentUpon>Window_Popup_ReturnBook.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.Config" />
-    <EntityDeploy Include="LibraryEntity.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>LibraryEntity1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
+    <None Include="Properties\DataSources\LibraryDBEntities.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -200,6 +188,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EntityDeploy Include="Team6A_LibraryDBEntity.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Team6A_LibraryDBEntity.Designer.cs</LastGenOutput>
+    </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\book_add.png" />

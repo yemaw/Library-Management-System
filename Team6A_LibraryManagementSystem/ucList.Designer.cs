@@ -36,7 +36,7 @@
             // 
             this.imgLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.imgLogo.Image = global::Team6A_LibraryManagementSystem.Properties.Resources.logo;
-            this.imgLogo.Location = new System.Drawing.Point(678, 14);
+            this.imgLogo.Location = new System.Drawing.Point(673, 22);
             this.imgLogo.Name = "imgLogo";
             this.imgLogo.Size = new System.Drawing.Size(100, 50);
             this.imgLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -49,7 +49,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.imgLogo);
             this.Name = "ucList";
-            this.Size = new System.Drawing.Size(792, 395);
+            this.Size = new System.Drawing.Size(817, 395);
             ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).EndInit();
             this.ResumeLayout(false);
 

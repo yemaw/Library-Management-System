@@ -21,5 +21,11 @@ namespace Team6A_LibraryManagementSystem
             InitializeComponent();
             panelPopup.Controls.Add(uc);
         }
+
+        public void RequestContentChange(UserControl uc)
+        {
+            panelPopup.Controls.Clear();
+            panelPopup.Controls.Add(uc);
+        }
     }
 }

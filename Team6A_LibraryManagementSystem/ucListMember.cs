@@ -11,6 +11,19 @@ namespace Team6A_LibraryManagementSystem
 {
     public partial class ucListMember : ucList
     {
+        Window_Master MainWindowObject;
+        //Window_Popup_Details ContainerWindowObject;
+
+        public void setMainWindowRefrence(Window_Master window)
+        {
+            MainWindowObject = window;
+        }
+
+        //public void setContainerWindowRefrence(Window_Popup_Details window)
+        //{
+        //    ContainerWindowObject = window;
+        //}
+
         public ucListMember()
         {
             InitializeComponent();
@@ -28,6 +41,25 @@ namespace Team6A_LibraryManagementSystem
             var bookmodels = query.ToList();
 
             dgvMembersList.DataSource = bookmodels;
+        }
+
+        private void dgvMembersList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridView dgv = sender as DataGridView;
+
+            if (dgv == null)
+                return;
+            if (dgv.CurrentRow.Selected)
+            {
+                int member_id = Convert.ToInt32(dgv.SelectedRows[0].Cells["MemberID"].Value);
+                
+                ucDetialsMember ucdm = new ucDetialsMember(member_id);
+                ucdm.setMainWindowRefrence(MainWindowObject);
+                Window_Popup_Details pd = new Window_Popup_Details(ucdm);
+                ucdm.setParentWindowRefrence(pd);
+                
+                pd.Show();
+            }
         }
     }
 }

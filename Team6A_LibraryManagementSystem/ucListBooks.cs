@@ -13,7 +13,8 @@ namespace Team6A_LibraryManagementSystem
     {
         LibraryDBEntities entity;
         DataTable dt;
-        
+        Window_Master MainWindowObject;
+        //Window_Popup_Details ContainerWindowObject;
 
         public ucListBooks()
         {
@@ -30,6 +31,16 @@ namespace Team6A_LibraryManagementSystem
             dt.Columns.Add("Max Available Days To Rent", typeof(string));
             dt.Columns.Add("Book Model ID", typeof(int));
         }
+
+        public void setMainWindowRefrence(Window_Master window)
+        {
+            MainWindowObject = window;
+        }
+
+        //public void setContainerWindowRefrence(Window_Popup_Details window)
+        //{
+        //    ContainerWindowObject = window;
+        //}
 
         private void ucListBooks_Load(object sender, EventArgs e)
         {
@@ -71,17 +82,52 @@ namespace Team6A_LibraryManagementSystem
             if (dgv.CurrentRow.Selected)
             {
                 int book_model_id = Convert.ToInt32(dgv.SelectedRows[0].Cells["Book Model ID"].Value);
-
-                ucDetailsBook ucObj = new ucDetailsBook(book_model_id);
-                Window_Popup_Details pd = new Window_Popup_Details(ucObj);
-                ucObj.setWinObject(pd);
+                
+                ucDetailsBook ucdb = new ucDetailsBook(book_model_id);
+                Window_Popup_Details pd = new Window_Popup_Details(ucdb);
+                ucdb.setWinObject(pd);
+                ucdb.setMainWindowRefrence(MainWindowObject);
+                ucdb.setParentWindowRefrence(pd);
                 pd.Show();
             }
         }
 
         private void btnSearchByBookID_Click(object sender, EventArgs e)
         {
+            int _book_id = 0;
+            try
+            {
+                _book_id = Convert.ToInt32(txtSearchByBookID.Text);
+            }
+            catch {
+                MessageBox.Show("Book ID you entered is not valid type.");
+                return;
+            }
             
+            Book _book = new Book();
+
+            _book = EntityBroker.getBookByBookID(_book_id);
+
+            if(_book == null) {
+                MessageBox.Show("Book ID you entered is not in the library.");
+                return;
+            }
+
+            if (_book.BookStatus == 1)
+            {
+                Window_Popup_LendBook w = new Window_Popup_LendBook(_book_id);
+                w.setMainWindowRefrence(MainWindowObject);
+                w.Show();
+            }
+            else if (_book.BookStatus == 0)
+            {
+                Window_Popup_ReturnBook w = new Window_Popup_ReturnBook(_book_id);
+                w.setMainWindowRefrence(MainWindowObject);
+                w.Show();
+            }
+           
+            
+
         }
 
         private void btnSearchByBookTitle_Click(object sender, EventArgs e)
@@ -96,56 +142,23 @@ namespace Team6A_LibraryManagementSystem
                     EntityBroker.getNumberOfAvaiableBooksToRentInLibraryByBookModelID(bookmodel.BookModelId),
                     bookmodel.Author,
                     bookmodel.BookCategory,
-                    bookmodel.MaxAvailableDayToRent
+                    bookmodel.MaxAvailableDayToRent,
+                    bookmodel.BookModelId
                     );
             }
             
             dgvBooksList.DataSource = dt;
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         //-----------------------------------------------------------------------------------------------------
         private void llbClearSearchBookByTitle_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             txtSearchByBookTitle.Text = "";
-
-            //BooksModel bm = new BooksModel();
-            //bm.BookTitle = "Hello Buddy";
-            //bm.BookCategory = "Lit";
-            //bm.Author = "Someone";
-            //entity.AddToBooksModels(bm);
-            //entity.SaveChanges();
-
-            var bookmodels = EntityBroker.getBooksModels();
-            dt.Rows.Clear();
-            foreach (BooksModel bookmodel in bookmodels)
-            {
-                dt.Rows.Add(
-                    bookmodel.BookTitle,
-                    EntityBroker.getNumberOfBooksInLibraryByBookModelID(bookmodel.BookModelId),
-                    EntityBroker.getNumberOfAvaiableBooksToRentInLibraryByBookModelID(bookmodel.BookModelId),
-                    bookmodel.Author,
-                    bookmodel.BookCategory,
-                    bookmodel.MaxAvailableDayToRent
-                    );
-            }
-            dgvBooksList.DataSource = dt;
+            
+            ucListBooks booklist = new ucListBooks();
+            booklist.setMainWindowRefrence(MainWindowObject);
+            
+            MainWindowObject.RequestContentChange(booklist);
         }
 
        

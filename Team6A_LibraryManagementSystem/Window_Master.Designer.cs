@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panelMain = new System.Windows.Forms.Panel();
+            this.MainMenu = new System.Windows.Forms.MenuStrip();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.memberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,7 +42,6 @@
             this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.advanceSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.MainMenu = new System.Windows.Forms.MenuStrip();
             this.MainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,9 +49,23 @@
             // 
             this.panelMain.Location = new System.Drawing.Point(1, 40);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(853, 416);
+            this.panelMain.Size = new System.Drawing.Size(788, 416);
             this.panelMain.TabIndex = 0;
             this.panelMain.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMain_Paint);
+            // 
+            // MainMenu
+            // 
+            this.MainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newToolStripMenuItem,
+            this.viewToolStripMenuItem,
+            this.reportsToolStripMenuItem,
+            this.helpToolStripMenuItem,
+            this.advanceSearchToolStripMenuItem});
+            this.MainMenu.Location = new System.Drawing.Point(0, 0);
+            this.MainMenu.Name = "MainMenu";
+            this.MainMenu.Size = new System.Drawing.Size(793, 26);
+            this.MainMenu.TabIndex = 1;
+            this.MainMenu.Text = "menuStrip2";
             // 
             // newToolStripMenuItem
             // 
@@ -148,25 +162,11 @@
             this.advanceSearchToolStripMenuItem.Text = "Advance Search";
             this.advanceSearchToolStripMenuItem.Click += new System.EventHandler(this.advanceSearchToolStripMenuItem_Click);
             // 
-            // MainMenu
-            // 
-            this.MainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newToolStripMenuItem,
-            this.viewToolStripMenuItem,
-            this.reportsToolStripMenuItem,
-            this.helpToolStripMenuItem,
-            this.advanceSearchToolStripMenuItem});
-            this.MainMenu.Location = new System.Drawing.Point(0, 0);
-            this.MainMenu.Name = "MainMenu";
-            this.MainMenu.Size = new System.Drawing.Size(859, 26);
-            this.MainMenu.TabIndex = 1;
-            this.MainMenu.Text = "menuStrip2";
-            // 
             // Window_Master
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(859, 455);
+            this.ClientSize = new System.Drawing.Size(793, 455);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.MainMenu);
             this.Name = "Window_Master";

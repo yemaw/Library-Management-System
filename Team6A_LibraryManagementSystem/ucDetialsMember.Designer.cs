@@ -41,6 +41,7 @@
             this.lblEmail = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.lblMemberIDValue = new System.Windows.Forms.Label();
+            this.btnSave = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -168,17 +169,29 @@
             this.lblMemberIDValue.AutoSize = true;
             this.lblMemberIDValue.Location = new System.Drawing.Point(107, 0);
             this.lblMemberIDValue.Name = "lblMemberIDValue";
-            this.lblMemberIDValue.Size = new System.Drawing.Size(37, 13);
+            this.lblMemberIDValue.Size = new System.Drawing.Size(65, 13);
             this.lblMemberIDValue.TabIndex = 12;
-            this.lblMemberIDValue.Text = "12354";
+            this.lblMemberIDValue.Text = "(Member ID)";
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(213, 261);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 2;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // ucDetialsMember
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "ucDetialsMember";
             this.Size = new System.Drawing.Size(684, 359);
+            this.Load += new System.EventHandler(this.ucDetialsMember_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -200,5 +213,6 @@
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label lblMemberIDValue;
+        private System.Windows.Forms.Button btnSave;
     }
 }

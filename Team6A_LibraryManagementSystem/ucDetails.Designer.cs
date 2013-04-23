@@ -2,6 +2,7 @@
 {
     partial class ucDetails
     {
+        
         /// <summary> 
         /// Required designer variable.
         /// </summary>

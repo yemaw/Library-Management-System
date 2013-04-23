@@ -13,19 +13,32 @@ namespace Team6A_LibraryManagementSystem
     {
         private LibraryDBEntities entity;
         private BooksModel bookmodel;
-        
         private DataTable dt;
-        
+        Window_Master MainWindowObject;
+        Window_Popup_Details ParentWindowObject;
+        int book_model_id = 0;
+
+        public void setMainWindowRefrence(Window_Master window)
+        {
+            MainWindowObject = window;
+        }
+
+        public void setParentWindowRefrence(Window_Popup_Details window)
+        {
+            ParentWindowObject = window;
+        }
 
         public ucDetailsBook()
         {
             InitializeComponent();
             lblBookTitlePageTitle.Text = "";
+            btnAddNew.Enabled = false;
         }
         
         public ucDetailsBook(int _book_model_id) {
             InitializeComponent();
-           
+
+            book_model_id = _book_model_id;
             entity = new LibraryDBEntities();
             dt = new DataTable();
 
@@ -40,11 +53,15 @@ namespace Team6A_LibraryManagementSystem
 
         private void ucDetailsBook_Load(object sender, EventArgs e)
         {
-            if (bookmodel == null) {
-                return;
+            if (book_model_id > 0)
+            {
+                fillBookList();
             }
-
-            fillBookList();    
+            else {
+                
+            }
+            
+            dgvListOfCopies.DataSource = dt;
         }
 
         public void fillBookList() {
@@ -55,6 +72,8 @@ namespace Team6A_LibraryManagementSystem
             txtBookCategory.Text = bookmodel.BookCategory;
             txtPublisherName.Text = bookmodel.PublisherName;
             dtpPublishDate.Value = bookmodel.PublishDate.Value;
+            txtRentalPricePerDay.Text = bookmodel.RentalPricePerDay.ToString();
+            maxAvaiableDaysToRent.Text = bookmodel.MaxAvailableDayToRent.ToString();
 
             dt.Rows.Clear();
 
@@ -67,6 +86,7 @@ namespace Team6A_LibraryManagementSystem
                 string due_date_str = "-";
 
                 string status = (book.BookStatus == 0) ? "Rented" : (book.BookStatus == 1) ? "Avaiable" : "Not Avaiable";
+                
                 LibTran t = EntityBroker.getLastTransationByBookID(book.BookID);
 
                 if (book.BookStatus == 0)
@@ -83,7 +103,7 @@ namespace Team6A_LibraryManagementSystem
                     due_date_str
                   );
             }
-            dgvListOfCopies.DataSource = dt;
+            
         }
 
         private void txtBookTitle_KeyUp(object sender, KeyEventArgs e)
@@ -93,32 +113,54 @@ namespace Team6A_LibraryManagementSystem
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            bookmodel.BookTitle = lblBookTitlePageTitle.Text;
-            bookmodel.BookTitle = txtBookTitle.Text;
-            bookmodel.BookDescription = txtBookDescription.Text;
-            bookmodel.Author = txtAuthor.Text;
-            bookmodel.BookCategory = txtBookCategory.Text;
-            bookmodel.PublisherName = txtPublisherName.Text;
-            bookmodel.PublishDate = dtpPublishDate.Value;
+            int i = 0;
 
-            LibraryDBEntities entity = new LibraryDBEntities();
+            if (book_model_id > 0)
+            {
+                bookmodel.BookTitle = lblBookTitlePageTitle.Text;
+                bookmodel.BookTitle = txtBookTitle.Text;
+                bookmodel.BookDescription = txtBookDescription.Text;
+                bookmodel.Author = txtAuthor.Text;
+                bookmodel.BookCategory = txtBookCategory.Text;
+                bookmodel.PublisherName = txtPublisherName.Text;
+                bookmodel.PublishDate = dtpPublishDate.Value;
+                bookmodel.RentalPricePerDay = (decimal)Convert.ToDouble(txtRentalPricePerDay.Text);
+                bookmodel.MaxAvailableDayToRent = (short) Convert.ToInt32(maxAvaiableDaysToRent.Text);
 
-            var book_model_row = (from bm in entity.BooksModels
-                                  where bm.BookModelId == bookmodel.BookModelId
-                                  select bm).FirstOrDefault();
+                i = EntityBroker.updateBookModel(bookmodel);
+            }
+            else
+            {
+                BooksModel bm = new BooksModel();
+                bm.BookTitle = lblBookTitlePageTitle.Text;
+                bm.BookTitle = txtBookTitle.Text;
+                bm.BookDescription = txtBookDescription.Text;
+                bm.Author = txtAuthor.Text;
+                bm.BookCategory = txtBookCategory.Text;
+                bm.PublisherName = txtPublisherName.Text;
+                bm.PublishDate = dtpPublishDate.Value;
+                bm.RentalPricePerDay = (decimal)Convert.ToDouble(txtRentalPricePerDay.Text);
+                bm.MaxAvailableDayToRent = (short)Convert.ToDouble(maxAvaiableDaysToRent.Text);
 
-            book_model_row = bookmodel;
-
-            int i = entity.SaveChanges();
-
-            //int i = EntityBroker.updateBookModelEntity(bookmodel);
+                i = EntityBroker.createNewBookModel(bm);
+            }
+            
+            
             if (i == 1)
             {
                 MessageBox.Show("Book Information Saved");
+
+                ucListBooks booklist = new ucListBooks();
+                booklist.setMainWindowRefrence(MainWindowObject);
+                MainWindowObject.RequestContentChange(booklist);
+                
+                ParentWindowObject.Close();
             }
             else { 
                 MessageBox.Show("Error in updating. Error code :: {0}", i.ToString());
             }
+            
+            
         }
 
         private void dgvListOfCopies_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -137,13 +179,15 @@ namespace Team6A_LibraryManagementSystem
                 if (_book.BookStatus == 1)
                 {
                     Window_Popup_LendBook w = new Window_Popup_LendBook(_book_id);
-                    winObj.Close();
+                    w.setMainWindowRefrence(MainWindowObject);
                     w.Show();
+                    winObj.Close();
                 }
                 else {
                     Window_Popup_ReturnBook w = new Window_Popup_ReturnBook(_book_id);
-                    winObj.Close();
+                    w.setMainWindowRefrence(MainWindowObject);
                     w.Show();
+                    winObj.Close();
                 }
 
                 
@@ -162,7 +206,37 @@ namespace Team6A_LibraryManagementSystem
 
         }
 
+        private void btnAddNew_Click(object sender, EventArgs e)
+        {
+            Book book = new Book();
+            book.BookModelID = book_model_id;
+            book.BookStatus = 1;
+            int i = EntityBroker.createNewBook(book);
+            if (i == 0)
+            {
+                return;
+            }
+            //refreshing book list
+            //MessageBox.Show(book_model_id.ToString());
+            ucDetailsBook ucdb = new ucDetailsBook(book_model_id);
+            ucdb.setMainWindowRefrence(MainWindowObject);
+            ucdb.setParentWindowRefrence(ParentWindowObject);
+            ParentWindowObject.RequestContentChange(ucdb);
 
+            //refreshing min window list
+            ucListBooks booklist = new ucListBooks();
+            booklist.setMainWindowRefrence(MainWindowObject);
+            MainWindowObject.RequestContentChange(booklist);
+            
+
+        }
+
+        private bool isNewBookModel() {
+            if (book_model_id == 0) {
+                return false;
+            }
+            return true;
+        }
         
 
         

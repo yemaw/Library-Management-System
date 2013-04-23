@@ -4,21 +4,21 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="LibraryDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
-        <EntityContainer Name="LibraryDBModelStoreContainer">
-          <EntitySet Name="Books" EntityType="LibraryDBModel.Store.Books" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="BooksModels" EntityType="LibraryDBModel.Store.BooksModels" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="LibTrans" EntityType="LibraryDBModel.Store.LibTrans" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Members" EntityType="LibraryDBModel.Store.Members" store:Type="Tables" Schema="dbo" />
-          <AssociationSet Name="FK_Books_BooksModels" Association="LibraryDBModel.Store.FK_Books_BooksModels">
+      <Schema Namespace="Team6A_LibraryDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="Team6A_LibraryDBModelStoreContainer">
+          <EntitySet Name="Books" EntityType="Team6A_LibraryDBModel.Store.Books" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BooksModels" EntityType="Team6A_LibraryDBModel.Store.BooksModels" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LibTrans" EntityType="Team6A_LibraryDBModel.Store.LibTrans" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Members" EntityType="Team6A_LibraryDBModel.Store.Members" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Books_BooksModels" Association="Team6A_LibraryDBModel.Store.FK_Books_BooksModels">
             <End Role="BooksModels" EntitySet="BooksModels" />
             <End Role="Books" EntitySet="Books" />
           </AssociationSet>
-          <AssociationSet Name="FK_LibTrans_Books" Association="LibraryDBModel.Store.FK_LibTrans_Books">
+          <AssociationSet Name="FK_LibTrans_Books" Association="Team6A_LibraryDBModel.Store.FK_LibTrans_Books">
             <End Role="Books" EntitySet="Books" />
             <End Role="LibTrans" EntitySet="LibTrans" />
           </AssociationSet>
-          <AssociationSet Name="FK_LibTrans_Members" Association="LibraryDBModel.Store.FK_LibTrans_Members">
+          <AssociationSet Name="FK_LibTrans_Members" Association="Team6A_LibraryDBModel.Store.FK_LibTrans_Members">
             <End Role="Members" EntitySet="Members" />
             <End Role="LibTrans" EntitySet="LibTrans" />
           </AssociationSet>
@@ -43,6 +43,7 @@
           <Property Name="PublishDate" Type="date" />
           <Property Name="BookCategory" Type="varchar" Nullable="false" MaxLength="20" />
           <Property Name="MaxAvailableDayToRent" Type="smallint" />
+          <Property Name="RentalPricePerDay" Type="numeric" />
         </EntityType>
         <EntityType Name="LibTrans">
           <Key>
@@ -67,8 +68,8 @@
           <Property Name="Email" Type="varchar" MaxLength="20" />
         </EntityType>
         <Association Name="FK_Books_BooksModels">
-          <End Role="BooksModels" Type="LibraryDBModel.Store.BooksModels" Multiplicity="1" />
-          <End Role="Books" Type="LibraryDBModel.Store.Books" Multiplicity="*" />
+          <End Role="BooksModels" Type="Team6A_LibraryDBModel.Store.BooksModels" Multiplicity="1" />
+          <End Role="Books" Type="Team6A_LibraryDBModel.Store.Books" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="BooksModels">
               <PropertyRef Name="BookModelId" />
@@ -79,8 +80,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_LibTrans_Books">
-          <End Role="Books" Type="LibraryDBModel.Store.Books" Multiplicity="1" />
-          <End Role="LibTrans" Type="LibraryDBModel.Store.LibTrans" Multiplicity="*" />
+          <End Role="Books" Type="Team6A_LibraryDBModel.Store.Books" Multiplicity="1" />
+          <End Role="LibTrans" Type="Team6A_LibraryDBModel.Store.LibTrans" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Books">
               <PropertyRef Name="BookID" />
@@ -91,8 +92,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_LibTrans_Members">
-          <End Role="Members" Type="LibraryDBModel.Store.Members" Multiplicity="1" />
-          <End Role="LibTrans" Type="LibraryDBModel.Store.LibTrans" Multiplicity="*" />
+          <End Role="Members" Type="Team6A_LibraryDBModel.Store.Members" Multiplicity="1" />
+          <End Role="LibTrans" Type="Team6A_LibraryDBModel.Store.LibTrans" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Members">
               <PropertyRef Name="MemberID" />
@@ -102,25 +103,56 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="fn_diagramobjects" ReturnType="int" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="LibraryDBModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+      <Schema Namespace="Team6A_LibraryDBModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="LibraryDBEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Books" EntityType="LibraryDBModel.Book" />
-          <EntitySet Name="BooksModels" EntityType="LibraryDBModel.BooksModel" />
-          <EntitySet Name="LibTrans" EntityType="LibraryDBModel.LibTran" />
-          <EntitySet Name="Members" EntityType="LibraryDBModel.Member" />
-          <AssociationSet Name="FK_Books_BooksModels" Association="LibraryDBModel.FK_Books_BooksModels">
+          <EntitySet Name="Books" EntityType="Team6A_LibraryDBModel.Book" />
+          <EntitySet Name="BooksModels" EntityType="Team6A_LibraryDBModel.BooksModel" />
+          <EntitySet Name="LibTrans" EntityType="Team6A_LibraryDBModel.LibTran" />
+          <EntitySet Name="Members" EntityType="Team6A_LibraryDBModel.Member" />
+          <AssociationSet Name="FK_Books_BooksModels" Association="Team6A_LibraryDBModel.FK_Books_BooksModels">
             <End Role="BooksModels" EntitySet="BooksModels" />
             <End Role="Books" EntitySet="Books" />
           </AssociationSet>
-          <AssociationSet Name="FK_LibTrans_Books" Association="LibraryDBModel.FK_LibTrans_Books">
+          <AssociationSet Name="FK_LibTrans_Books" Association="Team6A_LibraryDBModel.FK_LibTrans_Books">
             <End Role="Books" EntitySet="Books" />
             <End Role="LibTrans" EntitySet="LibTrans" />
           </AssociationSet>
-          <AssociationSet Name="FK_LibTrans_Members" Association="LibraryDBModel.FK_LibTrans_Members">
+          <AssociationSet Name="FK_LibTrans_Members" Association="Team6A_LibraryDBModel.FK_LibTrans_Members">
             <End Role="Members" EntitySet="Members" />
             <End Role="LibTrans" EntitySet="LibTrans" />
           </AssociationSet>
@@ -132,8 +164,8 @@
           <Property Name="BookID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="BookModelID" Type="Int32" Nullable="false" />
           <Property Name="BookStatus" Type="Int16" Nullable="false" />
-          <NavigationProperty Name="BooksModel" Relationship="LibraryDBModel.FK_Books_BooksModels" FromRole="Books" ToRole="BooksModels" />
-          <NavigationProperty Name="LibTrans" Relationship="LibraryDBModel.FK_LibTrans_Books" FromRole="Books" ToRole="LibTrans" />
+          <NavigationProperty Name="BooksModel" Relationship="Team6A_LibraryDBModel.FK_Books_BooksModels" FromRole="Books" ToRole="BooksModels" />
+          <NavigationProperty Name="LibTrans" Relationship="Team6A_LibraryDBModel.FK_LibTrans_Books" FromRole="Books" ToRole="LibTrans" />
         </EntityType>
         <EntityType Name="BooksModel">
           <Key>
@@ -147,7 +179,8 @@
           <Property Name="PublishDate" Type="DateTime" />
           <Property Name="BookCategory" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
           <Property Name="MaxAvailableDayToRent" Type="Int16" />
-          <NavigationProperty Name="Books" Relationship="LibraryDBModel.FK_Books_BooksModels" FromRole="BooksModels" ToRole="Books" />
+          <Property Name="RentalPricePerDay" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="Books" Relationship="Team6A_LibraryDBModel.FK_Books_BooksModels" FromRole="BooksModels" ToRole="Books" />
         </EntityType>
         <EntityType Name="LibTran">
           <Key>
@@ -159,8 +192,8 @@
           <Property Name="LendDate" Type="DateTime" Nullable="false" />
           <Property Name="ReturnDate" Type="DateTime" Nullable="false" />
           <Property Name="ChargeAmount" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-          <NavigationProperty Name="Book" Relationship="LibraryDBModel.FK_LibTrans_Books" FromRole="LibTrans" ToRole="Books" />
-          <NavigationProperty Name="Member" Relationship="LibraryDBModel.FK_LibTrans_Members" FromRole="LibTrans" ToRole="Members" />
+          <NavigationProperty Name="Book" Relationship="Team6A_LibraryDBModel.FK_LibTrans_Books" FromRole="LibTrans" ToRole="Books" />
+          <NavigationProperty Name="Member" Relationship="Team6A_LibraryDBModel.FK_LibTrans_Members" FromRole="LibTrans" ToRole="Members" />
         </EntityType>
         <EntityType Name="Member">
           <Key>
@@ -172,11 +205,11 @@
           <Property Name="PhoneNumber" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
           <Property Name="NIRC" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
           <Property Name="Email" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="LibTrans" Relationship="LibraryDBModel.FK_LibTrans_Members" FromRole="Members" ToRole="LibTrans" />
+          <NavigationProperty Name="LibTrans" Relationship="Team6A_LibraryDBModel.FK_LibTrans_Members" FromRole="Members" ToRole="LibTrans" />
         </EntityType>
         <Association Name="FK_Books_BooksModels">
-          <End Role="BooksModels" Type="LibraryDBModel.BooksModel" Multiplicity="1" />
-          <End Role="Books" Type="LibraryDBModel.Book" Multiplicity="*" />
+          <End Role="BooksModels" Type="Team6A_LibraryDBModel.BooksModel" Multiplicity="1" />
+          <End Role="Books" Type="Team6A_LibraryDBModel.Book" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="BooksModels">
               <PropertyRef Name="BookModelId" />
@@ -187,8 +220,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_LibTrans_Books">
-          <End Role="Books" Type="LibraryDBModel.Book" Multiplicity="1" />
-          <End Role="LibTrans" Type="LibraryDBModel.LibTran" Multiplicity="*" />
+          <End Role="Books" Type="Team6A_LibraryDBModel.Book" Multiplicity="1" />
+          <End Role="LibTrans" Type="Team6A_LibraryDBModel.LibTran" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Books">
               <PropertyRef Name="BookID" />
@@ -199,8 +232,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_LibTrans_Members">
-          <End Role="Members" Type="LibraryDBModel.Member" Multiplicity="1" />
-          <End Role="LibTrans" Type="LibraryDBModel.LibTran" Multiplicity="*" />
+          <End Role="Members" Type="Team6A_LibraryDBModel.Member" Multiplicity="1" />
+          <End Role="LibTrans" Type="Team6A_LibraryDBModel.LibTran" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Members">
               <PropertyRef Name="MemberID" />
@@ -215,13 +248,13 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="LibraryDBModelStoreContainer" CdmEntityContainer="LibraryDBEntities">
-          <EntitySetMapping Name="Books"><EntityTypeMapping TypeName="LibraryDBModel.Book"><MappingFragment StoreEntitySet="Books">
+        <EntityContainerMapping StorageEntityContainer="Team6A_LibraryDBModelStoreContainer" CdmEntityContainer="LibraryDBEntities">
+          <EntitySetMapping Name="Books"><EntityTypeMapping TypeName="Team6A_LibraryDBModel.Book"><MappingFragment StoreEntitySet="Books">
             <ScalarProperty Name="BookID" ColumnName="BookID" />
             <ScalarProperty Name="BookModelID" ColumnName="BookModelID" />
             <ScalarProperty Name="BookStatus" ColumnName="BookStatus" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="BooksModels"><EntityTypeMapping TypeName="LibraryDBModel.BooksModel"><MappingFragment StoreEntitySet="BooksModels">
+          <EntitySetMapping Name="BooksModels"><EntityTypeMapping TypeName="Team6A_LibraryDBModel.BooksModel"><MappingFragment StoreEntitySet="BooksModels">
             <ScalarProperty Name="BookModelId" ColumnName="BookModelId" />
             <ScalarProperty Name="BookTitle" ColumnName="BookTitle" />
             <ScalarProperty Name="BookDescription" ColumnName="BookDescription" />
@@ -230,8 +263,9 @@
             <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
             <ScalarProperty Name="BookCategory" ColumnName="BookCategory" />
             <ScalarProperty Name="MaxAvailableDayToRent" ColumnName="MaxAvailableDayToRent" />
+            <ScalarProperty Name="RentalPricePerDay" ColumnName="RentalPricePerDay" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="LibTrans"><EntityTypeMapping TypeName="LibraryDBModel.LibTran"><MappingFragment StoreEntitySet="LibTrans">
+          <EntitySetMapping Name="LibTrans"><EntityTypeMapping TypeName="Team6A_LibraryDBModel.LibTran"><MappingFragment StoreEntitySet="LibTrans">
             <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
             <ScalarProperty Name="BookID" ColumnName="BookID" />
             <ScalarProperty Name="MemberID" ColumnName="MemberID" />
@@ -239,7 +273,7 @@
             <ScalarProperty Name="ReturnDate" ColumnName="ReturnDate" />
             <ScalarProperty Name="ChargeAmount" ColumnName="ChargeAmount" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="Members"><EntityTypeMapping TypeName="LibraryDBModel.Member"><MappingFragment StoreEntitySet="Members">
+          <EntitySetMapping Name="Members"><EntityTypeMapping TypeName="Team6A_LibraryDBModel.Member"><MappingFragment StoreEntitySet="Members">
             <ScalarProperty Name="MemberID" ColumnName="MemberID" />
             <ScalarProperty Name="MemberName" ColumnName="MemberName" />
             <ScalarProperty Name="Address" ColumnName="Address" />
@@ -267,23 +301,23 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="LibraryEntity">
-        <EntityTypeShape EntityType="LibraryDBModel.Book" Width="1.5" PointX="3" PointY="1.375" Height="2.1496386321385703" IsExpanded="true" />
-        <EntityTypeShape EntityType="LibraryDBModel.BooksModel" Width="1.5" PointX="0.75" PointY="1" Height="3.0035204482078548" IsExpanded="true" />
-        <EntityTypeShape EntityType="LibraryDBModel.LibTran" Width="1.5" PointX="5.25" PointY="1.125" Height="2.7900499941905341" IsExpanded="true" />
-        <EntityTypeShape EntityType="LibraryDBModel.Member" Width="1.5" PointX="3" PointY="3.875" Height="2.5765795401732126" IsExpanded="true" />
-        <AssociationConnector Association="LibraryDBModel.FK_Books_BooksModels" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="2.4498193160692852" />
-          <ConnectorPoint PointX="3" PointY="2.4498193160692852" />
+      <Diagram Name="Team6A_LibraryDBEntity">
+        <EntityTypeShape EntityType="Team6A_LibraryDBModel.Book" Width="1.5" PointX="3" PointY="1.5" Height="2.1496386321385703" IsExpanded="true" />
+        <EntityTypeShape EntityType="Team6A_LibraryDBModel.BooksModel" Width="1.5" PointX="0.75" PointY="1" Height="3.2169909022251759" IsExpanded="true" />
+        <EntityTypeShape EntityType="Team6A_LibraryDBModel.LibTran" Width="1.5" PointX="5.25" PointY="1.25" Height="2.7900499941905341" IsExpanded="true" />
+        <EntityTypeShape EntityType="Team6A_LibraryDBModel.Member" Width="1.5" PointX="3" PointY="5.25" Height="2.5765795401732117" IsExpanded="true" />
+        <AssociationConnector Association="Team6A_LibraryDBModel.FK_Books_BooksModels" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="2.5748193160692852" />
+          <ConnectorPoint PointX="3" PointY="2.5748193160692852" />
         </AssociationConnector>
-        <AssociationConnector Association="LibraryDBModel.FK_LibTrans_Books" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="2.4498193160692852" />
-          <ConnectorPoint PointX="5.25" PointY="2.4498193160692852" />
+        <AssociationConnector Association="Team6A_LibraryDBModel.FK_LibTrans_Books" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="2.5748193160692852" />
+          <ConnectorPoint PointX="5.25" PointY="2.5748193160692852" />
         </AssociationConnector>
-        <AssociationConnector Association="LibraryDBModel.FK_LibTrans_Members" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="5.1833152671818734" />
-          <ConnectorPoint PointX="6" PointY="5.1833152671818734" />
-          <ConnectorPoint PointX="6" PointY="3.9150499941905341" />
+        <AssociationConnector Association="Team6A_LibraryDBModel.FK_LibTrans_Members" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="6.5382897700866058" />
+          <ConnectorPoint PointX="6" PointY="6.5382897700866058" />
+          <ConnectorPoint PointX="6" PointY="4.0400499941905341" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

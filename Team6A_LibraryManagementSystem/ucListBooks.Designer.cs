@@ -114,12 +114,11 @@
             this.dgvBooksList.AllowUserToAddRows = false;
             this.dgvBooksList.AllowUserToDeleteRows = false;
             this.dgvBooksList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBooksList.Location = new System.Drawing.Point(32, 165);
+            this.dgvBooksList.Location = new System.Drawing.Point(13, 118);
             this.dgvBooksList.Name = "dgvBooksList";
-            this.dgvBooksList.Size = new System.Drawing.Size(760, 302);
+            this.dgvBooksList.Size = new System.Drawing.Size(760, 243);
             this.dgvBooksList.TabIndex = 4;
             this.dgvBooksList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBooksList_CellClick);
-           
             // 
             // ucListBooks
             // 
@@ -129,7 +128,7 @@
             this.Controls.Add(this.gbSearchByBookTitle);
             this.Controls.Add(this.gbSearchByBookID);
             this.Name = "ucListBooks";
-            this.Size = new System.Drawing.Size(792, 470);
+            this.Size = new System.Drawing.Size(789, 387);
             this.Load += new System.EventHandler(this.ucListBooks_Load);
             this.Controls.SetChildIndex(this.gbSearchByBookID, 0);
             this.Controls.SetChildIndex(this.gbSearchByBookTitle, 0);

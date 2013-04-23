@@ -5,8 +5,10 @@ using System.Text;
 
 namespace Team6A_LibraryManagementSystem
 {
-    class LibraryData
+    class Validator
     {
-        
+        public static void isValidBookID(object o) { 
+         
+        }
     }
 }
