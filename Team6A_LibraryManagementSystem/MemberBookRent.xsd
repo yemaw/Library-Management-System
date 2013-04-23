@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="MemberBookRent" targetNamespace="http://tempuri.org/MemberBookRent.xsd" xmlns:mstns="http://tempuri.org/MemberBookRent.xsd" xmlns="http://tempuri.org/MemberBookRent.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="Team6A_LibraryDBConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="Team6A_LibraryDBConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Team6A_LibraryManagementSystem.Properties.Settings.GlobalReference.Default.Team6A_LibraryDBConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="MemberBookRentTableAdapter" GeneratorDataComponentClassName="MemberBookRentTableAdapter" Name="MemberBookRent" UserDataComponentName="MemberBookRentTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Team6A_LibraryDBConnectionString (Settings)" DbObjectName="Team6A_LibraryDB.dbo.MemberBookRent" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select * from MemberBookRent</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MemberID" DataSetColumn="MemberID" />
+              <Mapping SourceColumn="MemberName" DataSetColumn="MemberName" />
+              <Mapping SourceColumn="BookTitle" DataSetColumn="BookTitle" />
+              <Mapping SourceColumn="ChargeAmount" DataSetColumn="ChargeAmount" />
+              <Mapping SourceColumn="ReturnDate" DataSetColumn="ReturnDate" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="MemberBookRent" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="MemberBookRent" msprop:Generator_UserDSName="MemberBookRent">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="MemberBookRent" msprop:Generator_TableClassName="MemberBookRentDataTable" msprop:Generator_TableVarName="tableMemberBookRent" msprop:Generator_TablePropName="_MemberBookRent" msprop:Generator_RowDeletingName="MemberBookRentRowDeleting" msprop:Generator_UserTableName="MemberBookRent" msprop:Generator_RowChangingName="MemberBookRentRowChanging" msprop:Generator_RowEvHandlerName="MemberBookRentRowChangeEventHandler" msprop:Generator_RowDeletedName="MemberBookRentRowDeleted" msprop:Generator_RowEvArgName="MemberBookRentRowChangeEvent" msprop:Generator_RowChangedName="MemberBookRentRowChanged" msprop:Generator_RowClassName="MemberBookRentRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MemberID" msprop:Generator_ColumnVarNameInTable="columnMemberID" msprop:Generator_ColumnPropNameInRow="MemberID" msprop:Generator_ColumnPropNameInTable="MemberIDColumn" msprop:Generator_UserColumnName="MemberID" type="xs:int" />
+              <xs:element name="MemberName" msprop:Generator_ColumnVarNameInTable="columnMemberName" msprop:Generator_ColumnPropNameInRow="MemberName" msprop:Generator_ColumnPropNameInTable="MemberNameColumn" msprop:Generator_UserColumnName="MemberName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookTitle" msprop:Generator_ColumnVarNameInTable="columnBookTitle" msprop:Generator_ColumnPropNameInRow="BookTitle" msprop:Generator_ColumnPropNameInTable="BookTitleColumn" msprop:Generator_UserColumnName="BookTitle">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ChargeAmount" msprop:Generator_ColumnVarNameInTable="columnChargeAmount" msprop:Generator_ColumnPropNameInRow="ChargeAmount" msprop:Generator_ColumnPropNameInTable="ChargeAmountColumn" msprop:Generator_UserColumnName="ChargeAmount" type="xs:decimal" />
+              <xs:element name="ReturnDate" msprop:Generator_ColumnVarNameInTable="columnReturnDate" msprop:Generator_ColumnPropNameInRow="ReturnDate" msprop:Generator_ColumnPropNameInTable="ReturnDateColumn" msprop:Generator_UserColumnName="ReturnDate" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

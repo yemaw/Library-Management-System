@@ -41,7 +41,7 @@
             this.dgvMembersList.Location = new System.Drawing.Point(58, 92);
             this.dgvMembersList.Name = "dgvMembersList";
             this.dgvMembersList.ReadOnly = true;
-            this.dgvMembersList.Size = new System.Drawing.Size(546, 267);
+            this.dgvMembersList.Size = new System.Drawing.Size(565, 267);
             this.dgvMembersList.TabIndex = 1;
             this.dgvMembersList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMembersList_CellClick);
             // 

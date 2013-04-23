@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="TotalMemberConsume" targetNamespace="http://tempuri.org/TotalMemberConsume.xsd" xmlns:mstns="http://tempuri.org/TotalMemberConsume.xsd" xmlns="http://tempuri.org/TotalMemberConsume.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="Team6A_LibraryDBConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="Team6A_LibraryDBConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Team6A_LibraryManagementSystem.Properties.Settings.GlobalReference.Default.Team6A_LibraryDBConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TotalMembersConsumeTableAdapter" GeneratorDataComponentClassName="TotalMembersConsumeTableAdapter" Name="TotalMembersConsume" UserDataComponentName="TotalMembersConsumeTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Team6A_LibraryDBConnectionString (Settings)" DbObjectName="Team6A_LibraryDB.dbo.TotalMembersConsume" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select * from TotalMembersConsume</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MemberName" DataSetColumn="MemberName" />
+              <Mapping SourceColumn="MemberID" DataSetColumn="MemberID" />
+              <Mapping SourceColumn="TotalConsumeAmount" DataSetColumn="TotalConsumeAmount" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="TotalMemberConsume" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="TotalMemberConsume" msprop:Generator_UserDSName="TotalMemberConsume">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="TotalMembersConsume" msprop:Generator_TableClassName="TotalMembersConsumeDataTable" msprop:Generator_TableVarName="tableTotalMembersConsume" msprop:Generator_TablePropName="TotalMembersConsume" msprop:Generator_RowDeletingName="TotalMembersConsumeRowDeleting" msprop:Generator_UserTableName="TotalMembersConsume" msprop:Generator_RowChangingName="TotalMembersConsumeRowChanging" msprop:Generator_RowEvHandlerName="TotalMembersConsumeRowChangeEventHandler" msprop:Generator_RowDeletedName="TotalMembersConsumeRowDeleted" msprop:Generator_RowEvArgName="TotalMembersConsumeRowChangeEvent" msprop:Generator_RowChangedName="TotalMembersConsumeRowChanged" msprop:Generator_RowClassName="TotalMembersConsumeRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MemberName" msprop:Generator_ColumnVarNameInTable="columnMemberName" msprop:Generator_ColumnPropNameInRow="MemberName" msprop:Generator_ColumnPropNameInTable="MemberNameColumn" msprop:Generator_UserColumnName="MemberName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MemberID" msprop:Generator_ColumnVarNameInTable="columnMemberID" msprop:Generator_ColumnPropNameInRow="MemberID" msprop:Generator_ColumnPropNameInTable="MemberIDColumn" msprop:Generator_UserColumnName="MemberID" type="xs:int" />
+              <xs:element name="TotalConsumeAmount" msprop:Generator_ColumnVarNameInTable="columnTotalConsumeAmount" msprop:Generator_ColumnPropNameInRow="TotalConsumeAmount" msprop:Generator_ColumnPropNameInTable="TotalConsumeAmountColumn" msprop:Generator_UserColumnName="TotalConsumeAmount" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TotalMembersConsume" />
+      <xs:field xpath="mstns:MemberID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

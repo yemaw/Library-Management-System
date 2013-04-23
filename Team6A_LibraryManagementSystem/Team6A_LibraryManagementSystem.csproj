@@ -11,7 +11,8 @@
     <RootNamespace>Team6A_LibraryManagementSystem</RootNamespace>
     <AssemblyName>Team6A_LibraryManagementSystem</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -34,11 +35,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Data.AdoDotNetInterop, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Enterprise.Viewing.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,11 +62,66 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntityBroker.cs" />
-    <Compile Include="EntityInstance.cs" />
+    <Compile Include="MemberBookLastRent.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MemberBookLastRent.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="MemberBookLastRentReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MemberBookLastRentReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MemberBookRent.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MemberBookRent.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report_MemberBookLastRentCrossTab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report_MemberBookLastRentCrossTab.Designer.cs">
+      <DependentUpon>Report_MemberBookLastRentCrossTab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report_MembersConsume.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report_MembersConsume.Designer.cs">
+      <DependentUpon>Report_MembersConsume.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report_TotalMembersConsumePieChatReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report_TotalMembersConsumePieChatReport.Designer.cs">
+      <DependentUpon>Report_TotalMembersConsumePieChatReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Team6A_LibraryDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Team6A_LibraryDBDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Team6A_LibraryDBEntity.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Team6A_LibraryDBEntity.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="TotalMemberConsume.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TotalMemberConsume.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TotalMemberConsumeStandardReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TotalMemberConsumeStandardReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TotalMembersConsumePieChatReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TotalMembersConsumePieChatReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="ucDetails.cs">
       <SubType>UserControl</SubType>
@@ -131,6 +198,27 @@
     <Compile Include="Window_Popup_LendBook.Designer.cs">
       <DependentUpon>Window_Popup_LendBook.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="MemberBookLastRentReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>MemberBookLastRentReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report_MemberBookLastRentCrossTab.resx">
+      <DependentUpon>Report_MemberBookLastRentCrossTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report_MembersConsume.resx">
+      <DependentUpon>Report_MembersConsume.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report_TotalMembersConsumePieChatReport.resx">
+      <DependentUpon>Report_TotalMembersConsumePieChatReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TotalMemberConsumeStandardReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>TotalMemberConsumeStandardReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TotalMembersConsumePieChatReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>TotalMembersConsumePieChatReport.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="ucDetails.resx">
       <DependentUpon>ucDetails.cs</DependentUpon>
     </EmbeddedResource>
@@ -178,6 +266,28 @@
       <DependentUpon>Window_Popup_ReturnBook.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.Config" />
+    <None Include="MemberBookLastRent.xsc">
+      <DependentUpon>MemberBookLastRent.xsd</DependentUpon>
+    </None>
+    <None Include="MemberBookLastRent.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MemberBookLastRent.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="MemberBookLastRent.xss">
+      <DependentUpon>MemberBookLastRent.xsd</DependentUpon>
+    </None>
+    <None Include="MemberBookRent.xsc">
+      <DependentUpon>MemberBookRent.xsd</DependentUpon>
+    </None>
+    <None Include="MemberBookRent.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MemberBookRent.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="MemberBookRent.xss">
+      <DependentUpon>MemberBookRent.xsd</DependentUpon>
+    </None>
     <None Include="Properties\DataSources\LibraryDBEntities.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -192,6 +302,28 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Team6A_LibraryDBEntity.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="Team6A_LibraryDBDataSet.xsc">
+      <DependentUpon>Team6A_LibraryDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Team6A_LibraryDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Team6A_LibraryDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Team6A_LibraryDBDataSet.xss">
+      <DependentUpon>Team6A_LibraryDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="TotalMemberConsume.xsc">
+      <DependentUpon>TotalMemberConsume.xsd</DependentUpon>
+    </None>
+    <None Include="TotalMemberConsume.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TotalMemberConsume.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="TotalMemberConsume.xss">
+      <DependentUpon>TotalMemberConsume.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\book_add.png" />
@@ -216,6 +348,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\6A.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

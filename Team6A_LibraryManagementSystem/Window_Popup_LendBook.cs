@@ -36,14 +36,19 @@ namespace Team6A_LibraryManagementSystem
             LibTran t = new LibTran();
             t.MemberID = Convert.ToInt32(txtMemberID.Text);
             t.BookID = Convert.ToInt32(txtBookID.Text);
-            t.LendDate = DateTime.Today;
+            t.LendDate = DateTime.Now;
 
             entity.AddToLibTrans(t);
-            entity.SaveChanges();
-            
+            try
+            {
+                entity.SaveChanges();
+
+            }catch{ 
+                MessageBox.Show("User not exit");
+            }
             Book b = entity.Books.Where(x => x.BookID == t.BookID).First();
-            b.BookStatus = 0 ;
-            
+            b.BookStatus = 0;
+
             int i = entity.SaveChanges();
             if (i == 1)
             {

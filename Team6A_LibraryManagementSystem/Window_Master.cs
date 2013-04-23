@@ -77,6 +77,25 @@ namespace Team6A_LibraryManagementSystem
             MessageBox.Show("Team 6A \n Ruby \n Nay Chi \n DJ \n Ye Maw");
         }
 
+        private void monthlyReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Report_MembersConsume report = new Report_MembersConsume();
+            report.Show();
+        }
+
+        private void memberLastRentedBookToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Report_MemberBookLastRentCrossTab report = new Report_MemberBookLastRentCrossTab();
+            report.Show();
+        }
+
+        private void membersConsumePieChartToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Report_TotalMembersConsumePieChatReport report = new Report_TotalMembersConsumePieChatReport();
+            report.Show();
+        }
+
+
         
     }
 }

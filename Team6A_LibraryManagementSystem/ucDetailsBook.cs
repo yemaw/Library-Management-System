@@ -65,16 +65,19 @@ namespace Team6A_LibraryManagementSystem
         }
 
         public void fillBookList() {
-            lblBookTitlePageTitle.Text = bookmodel.BookTitle;
-            txtBookTitle.Text = bookmodel.BookTitle;
-            txtBookDescription.Text = bookmodel.BookDescription;
-            txtAuthor.Text = bookmodel.Author;
-            txtBookCategory.Text = bookmodel.BookCategory;
-            txtPublisherName.Text = bookmodel.PublisherName;
-            dtpPublishDate.Value = bookmodel.PublishDate.Value;
-            txtRentalPricePerDay.Text = bookmodel.RentalPricePerDay.ToString();
-            maxAvaiableDaysToRent.Text = bookmodel.MaxAvailableDayToRent.ToString();
-
+            try
+            {
+                lblBookTitlePageTitle.Text = bookmodel.BookTitle;
+                txtBookTitle.Text = bookmodel.BookTitle;
+                txtBookDescription.Text = bookmodel.BookDescription;
+                txtAuthor.Text = bookmodel.Author;
+                txtBookCategory.Text = bookmodel.BookCategory;
+                txtPublisherName.Text = bookmodel.PublisherName;
+                dtpPublishDate.Value = bookmodel.PublishDate.Value;
+                txtRentalPricePerDay.Text = bookmodel.RentalPricePerDay.ToString();
+                maxAvaiableDaysToRent.Text = bookmodel.MaxAvailableDayToRent.ToString();
+            }
+            catch { }
             dt.Rows.Clear();
 
             var books = EntityBroker.getBooksByBookModelID(bookmodel.BookModelId);

@@ -38,6 +38,8 @@
             this.memberToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.monthlyReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.memberLastRentedBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.membersConsumePieChartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -120,7 +122,9 @@
             // reportsToolStripMenuItem
             // 
             this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.monthlyReportToolStripMenuItem});
+            this.monthlyReportToolStripMenuItem,
+            this.memberLastRentedBookToolStripMenuItem,
+            this.membersConsumePieChartToolStripMenuItem});
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
             this.reportsToolStripMenuItem.Size = new System.Drawing.Size(58, 22);
             this.reportsToolStripMenuItem.Text = "Reports";
@@ -128,8 +132,23 @@
             // monthlyReportToolStripMenuItem
             // 
             this.monthlyReportToolStripMenuItem.Name = "monthlyReportToolStripMenuItem";
-            this.monthlyReportToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
-            this.monthlyReportToolStripMenuItem.Text = "Monthly Report";
+            this.monthlyReportToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.monthlyReportToolStripMenuItem.Text = "Members Consume";
+            this.monthlyReportToolStripMenuItem.Click += new System.EventHandler(this.monthlyReportToolStripMenuItem_Click);
+            // 
+            // memberLastRentedBookToolStripMenuItem
+            // 
+            this.memberLastRentedBookToolStripMenuItem.Name = "memberLastRentedBookToolStripMenuItem";
+            this.memberLastRentedBookToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.memberLastRentedBookToolStripMenuItem.Text = "Members Last Rented Book";
+            this.memberLastRentedBookToolStripMenuItem.Click += new System.EventHandler(this.memberLastRentedBookToolStripMenuItem_Click);
+            // 
+            // membersConsumePieChartToolStripMenuItem
+            // 
+            this.membersConsumePieChartToolStripMenuItem.Name = "membersConsumePieChartToolStripMenuItem";
+            this.membersConsumePieChartToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.membersConsumePieChartToolStripMenuItem.Text = "Members Consume (Pie Chart)";
+            this.membersConsumePieChartToolStripMenuItem.Click += new System.EventHandler(this.membersConsumePieChartToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -195,6 +214,8 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem advanceSearchToolStripMenuItem;
         private System.Windows.Forms.MenuStrip MainMenu;
+        private System.Windows.Forms.ToolStripMenuItem memberLastRentedBookToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem membersConsumePieChartToolStripMenuItem;
     }
 }
 
