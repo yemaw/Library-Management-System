@@ -37,6 +37,7 @@
             this.lblMemberNameValue = new System.Windows.Forms.Label();
             this.lblRentDate = new System.Windows.Forms.Label();
             this.lblRentDateValue = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,7 +54,7 @@
             this.tableLayoutPanel1.Controls.Add(this.lblMemberNameValue, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.lblRentDate, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.lblRentDateValue, 1, 3);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(54, 35);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(55, 65);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
@@ -135,17 +136,28 @@
             this.lblRentDateValue.TabIndex = 7;
             this.lblRentDateValue.Text = "(Rent Date)";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(72, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "label1";
+            // 
             // Window_Popup_ReturnBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(612, 358);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Window_Popup_ReturnBook";
             this.Text = "Window_Transaction_ReturnBook";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -160,6 +172,7 @@
         private System.Windows.Forms.Label lblMemberNameValue;
         private System.Windows.Forms.Label lblRentDate;
         private System.Windows.Forms.Label lblRentDateValue;
+        private System.Windows.Forms.Label label1;
 
     }
 }

@@ -72,12 +72,9 @@ namespace Team6A_LibraryManagementSystem
             {
                 int book_model_id = Convert.ToInt32(dgv.SelectedRows[0].Cells["Book Model ID"].Value);
 
-                //int rowIndex = e.RowIndex;
-                //DataGridViewRow row = dgv.Rows[rowIndex];
-                //DataRow dr = dt.Rows[row.Index];
-                //int book_model_id = Convert.ToInt32(dr[6].ToString());
-                
-                Window_Popup_Details pd = new Window_Popup_Details(new ucDetailsBook(book_model_id));
+                ucDetailsBook ucObj = new ucDetailsBook(book_model_id);
+                Window_Popup_Details pd = new Window_Popup_Details(ucObj);
+                ucObj.setWinObject(pd);
                 pd.Show();
             }
         }

@@ -22,10 +22,10 @@ namespace Team6A_LibraryManagementSystem
             InitializeComponent();
             lblBookTitlePageTitle.Text = "";
         }
-
+        
         public ucDetailsBook(int _book_model_id) {
             InitializeComponent();
-
+           
             entity = new LibraryDBEntities();
             dt = new DataTable();
 
@@ -71,9 +71,9 @@ namespace Team6A_LibraryManagementSystem
 
                 if (book.BookStatus == 0)
                 {
-                    lend_date_str = t.LendDate.ToString("dd MMMM, yy");
+                    lend_date_str = t.LendDate.ToString("dd MM yyyy");
                     DateTime DueDate = t.LendDate.AddDays(Convert.ToDouble(bookmodel.MaxAvailableDayToRent));
-                    due_date_str = DueDate.ToString("dd MMMM, yy");
+                    due_date_str = DueDate.ToString("dd MM yyyy");
                 }
 
                 dt.Rows.Add(
@@ -101,7 +101,17 @@ namespace Team6A_LibraryManagementSystem
             bookmodel.PublisherName = txtPublisherName.Text;
             bookmodel.PublishDate = dtpPublishDate.Value;
 
-            int i = EntityBroker.updateBookModelEntity(bookmodel);
+            LibraryDBEntities entity = new LibraryDBEntities();
+
+            var book_model_row = (from bm in entity.BooksModels
+                                  where bm.BookModelId == bookmodel.BookModelId
+                                  select bm).FirstOrDefault();
+
+            book_model_row = bookmodel;
+
+            int i = entity.SaveChanges();
+
+            //int i = EntityBroker.updateBookModelEntity(bookmodel);
             if (i == 1)
             {
                 MessageBox.Show("Book Information Saved");
@@ -121,10 +131,34 @@ namespace Team6A_LibraryManagementSystem
             if (dgv.CurrentRow.Selected)
             {
                 int _book_id = Convert.ToInt32(dgv.SelectedRows[0].Cells["Book ID"].Value);
+
+                Book _book = EntityBroker.getBookByBookID(_book_id);
+
+                if (_book.BookStatus == 1)
+                {
+                    Window_Popup_LendBook w = new Window_Popup_LendBook(_book_id);
+                    winObj.Close();
+                    w.Show();
+                }
+                else {
+                    Window_Popup_ReturnBook w = new Window_Popup_ReturnBook(_book_id);
+                    winObj.Close();
+                    w.Show();
+                }
+
                 
-                Window_Popup_LendBook w = new Window_Popup_LendBook(_book_id);
-                w.Show();
             }   
+
+        }
+
+        Window_Popup_Details winObj = null;
+        public void setWinObject(Window_Popup_Details obj)
+        {
+            winObj = obj;
+        }
+
+        private void dgvListOfCopies_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
 

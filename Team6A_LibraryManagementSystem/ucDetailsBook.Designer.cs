@@ -258,6 +258,7 @@
             this.dgvListOfCopies.Size = new System.Drawing.Size(828, 224);
             this.dgvListOfCopies.TabIndex = 7;
             this.dgvListOfCopies.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListOfCopies_CellClick);
+            this.dgvListOfCopies.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListOfCopies_CellContentClick);
             // 
             // lblListOfCopies
             // 

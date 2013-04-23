@@ -96,6 +96,26 @@ namespace Team6A_LibraryManagementSystem
             Book b = entity.Books.Where(x => x.BookID == _book_id).First();
             return b;
         }
+        
+        public static Member getMemberByMemberID(int _member_id) {
+            LibraryDBEntities entity = new LibraryDBEntities();
+
+            Member m = entity.Members.Where(x => x.MemberID == _member_id).First();
+            return m;
+        }
+
+        //public static int getBookStatus(int _book_id) {
+        //    LibraryDBEntities entity = new LibraryDBEntities();
+
+        //    var query = from b in entity.Books
+        //             where b.BookID == _book_id
+        //             select new { b.BookID };
+        //    int i=3;
+        //    foreach (var q in query) {
+        //        i = Convert.ToInt32(q);
+        //    }
+        //    return i;
+        //}
 
     }
 }
