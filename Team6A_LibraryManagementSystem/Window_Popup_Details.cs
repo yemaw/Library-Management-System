@@ -14,12 +14,14 @@ namespace Team6A_LibraryManagementSystem
         public Window_Popup_Details()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle; //make unresizable 
         }
 
         public Window_Popup_Details(UserControl uc)
         {
             InitializeComponent();
             panelPopup.Controls.Add(uc);
+            this.FormBorderStyle = FormBorderStyle.FixedSingle; //make unresizable 
         }
 
         public void RequestContentChange(UserControl uc)

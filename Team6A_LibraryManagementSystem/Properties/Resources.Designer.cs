@@ -60,6 +60,13 @@ namespace Team6A_LibraryManagementSystem.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap _6A {
+            get {
+                object obj = ResourceManager.GetObject("6A", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap advance_search {
             get {
                 object obj = ResourceManager.GetObject("advance_search", resourceCulture);
@@ -81,6 +88,20 @@ namespace Team6A_LibraryManagementSystem.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap book_go {
+            get {
+                object obj = ResourceManager.GetObject("book_go", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap bookmark_edit {
+            get {
+                object obj = ResourceManager.GetObject("bookmark_edit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap help {
             get {
                 object obj = ResourceManager.GetObject("help", resourceCulture);
@@ -91,6 +112,13 @@ namespace Team6A_LibraryManagementSystem.Properties {
         internal static System.Drawing.Bitmap logo {
             get {
                 object obj = ResourceManager.GetObject("logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap report {
+            get {
+                object obj = ResourceManager.GetObject("report", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

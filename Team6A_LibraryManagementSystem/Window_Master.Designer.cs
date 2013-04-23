@@ -33,6 +33,7 @@
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.memberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lendBookToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bookToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.memberToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,7 +44,6 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.advanceSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,10 +59,10 @@
             // 
             this.MainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newToolStripMenuItem,
+            this.lendBookToolStripMenuItem1,
             this.viewToolStripMenuItem,
             this.reportsToolStripMenuItem,
-            this.helpToolStripMenuItem,
-            this.advanceSearchToolStripMenuItem});
+            this.helpToolStripMenuItem});
             this.MainMenu.Location = new System.Drawing.Point(0, 0);
             this.MainMenu.Name = "MainMenu";
             this.MainMenu.Size = new System.Drawing.Size(793, 26);
@@ -94,6 +94,14 @@
             this.memberToolStripMenuItem.Text = "Add Member";
             this.memberToolStripMenuItem.Click += new System.EventHandler(this.memberToolStripMenuItem_Click);
             // 
+            // lendBookToolStripMenuItem1
+            // 
+            this.lendBookToolStripMenuItem1.Image = global::Team6A_LibraryManagementSystem.Properties.Resources.book_go;
+            this.lendBookToolStripMenuItem1.Name = "lendBookToolStripMenuItem1";
+            this.lendBookToolStripMenuItem1.Size = new System.Drawing.Size(85, 22);
+            this.lendBookToolStripMenuItem1.Text = "Lend Book";
+            this.lendBookToolStripMenuItem1.Click += new System.EventHandler(this.lendBookToolStripMenuItem1_Click);
+            // 
             // viewToolStripMenuItem
             // 
             this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -107,7 +115,7 @@
             // 
             this.bookToolStripMenuItem1.Image = global::Team6A_LibraryManagementSystem.Properties.Resources.book;
             this.bookToolStripMenuItem1.Name = "bookToolStripMenuItem1";
-            this.bookToolStripMenuItem1.Size = new System.Drawing.Size(133, 22);
+            this.bookToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.bookToolStripMenuItem1.Text = "Book List";
             this.bookToolStripMenuItem1.Click += new System.EventHandler(this.bookToolStripMenuItem1_Click);
             // 
@@ -115,7 +123,7 @@
             // 
             this.memberToolStripMenuItem1.Image = global::Team6A_LibraryManagementSystem.Properties.Resources.user;
             this.memberToolStripMenuItem1.Name = "memberToolStripMenuItem1";
-            this.memberToolStripMenuItem1.Size = new System.Drawing.Size(133, 22);
+            this.memberToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.memberToolStripMenuItem1.Text = "Member List";
             this.memberToolStripMenuItem1.Click += new System.EventHandler(this.memberToolStripMenuItem1_Click);
             // 
@@ -123,14 +131,15 @@
             // 
             this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.monthlyReportToolStripMenuItem,
-            this.memberLastRentedBookToolStripMenuItem,
-            this.membersConsumePieChartToolStripMenuItem});
+            this.membersConsumePieChartToolStripMenuItem,
+            this.memberLastRentedBookToolStripMenuItem});
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
             this.reportsToolStripMenuItem.Size = new System.Drawing.Size(58, 22);
             this.reportsToolStripMenuItem.Text = "Reports";
             // 
             // monthlyReportToolStripMenuItem
             // 
+            this.monthlyReportToolStripMenuItem.Image = global::Team6A_LibraryManagementSystem.Properties.Resources.report;
             this.monthlyReportToolStripMenuItem.Name = "monthlyReportToolStripMenuItem";
             this.monthlyReportToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.monthlyReportToolStripMenuItem.Text = "Members Consume";
@@ -138,6 +147,7 @@
             // 
             // memberLastRentedBookToolStripMenuItem
             // 
+            this.memberLastRentedBookToolStripMenuItem.Image = global::Team6A_LibraryManagementSystem.Properties.Resources.report;
             this.memberLastRentedBookToolStripMenuItem.Name = "memberLastRentedBookToolStripMenuItem";
             this.memberLastRentedBookToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.memberLastRentedBookToolStripMenuItem.Text = "Members Last Rented Book";
@@ -145,6 +155,7 @@
             // 
             // membersConsumePieChartToolStripMenuItem
             // 
+            this.membersConsumePieChartToolStripMenuItem.Image = global::Team6A_LibraryManagementSystem.Properties.Resources.report;
             this.membersConsumePieChartToolStripMenuItem.Name = "membersConsumePieChartToolStripMenuItem";
             this.membersConsumePieChartToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.membersConsumePieChartToolStripMenuItem.Text = "Members Consume (Pie Chart)";
@@ -165,21 +176,15 @@
             this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
             this.helpToolStripMenuItem1.Size = new System.Drawing.Size(105, 22);
             this.helpToolStripMenuItem1.Text = "Help";
+            this.helpToolStripMenuItem1.Click += new System.EventHandler(this.helpToolStripMenuItem1_Click);
             // 
             // aboutToolStripMenuItem
             // 
+            this.aboutToolStripMenuItem.Image = global::Team6A_LibraryManagementSystem.Properties.Resources._6A;
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
-            // 
-            // advanceSearchToolStripMenuItem
-            // 
-            this.advanceSearchToolStripMenuItem.Image = global::Team6A_LibraryManagementSystem.Properties.Resources.advance_search;
-            this.advanceSearchToolStripMenuItem.Name = "advanceSearchToolStripMenuItem";
-            this.advanceSearchToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
-            this.advanceSearchToolStripMenuItem.Text = "Advance Search";
-            this.advanceSearchToolStripMenuItem.Click += new System.EventHandler(this.advanceSearchToolStripMenuItem_Click);
             // 
             // Window_Master
             // 
@@ -188,6 +193,7 @@
             this.ClientSize = new System.Drawing.Size(793, 455);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.MainMenu);
+            this.MaximizeBox = false;
             this.Name = "Window_Master";
             this.Text = "Library Management System (Team 6A)";
             this.Load += new System.EventHandler(this.Window_Master_Load);
@@ -212,10 +218,10 @@
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem advanceSearchToolStripMenuItem;
         private System.Windows.Forms.MenuStrip MainMenu;
         private System.Windows.Forms.ToolStripMenuItem memberLastRentedBookToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem membersConsumePieChartToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lendBookToolStripMenuItem1;
     }
 }
 

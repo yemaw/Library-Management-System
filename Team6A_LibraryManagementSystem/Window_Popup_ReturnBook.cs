@@ -27,11 +27,13 @@ namespace Team6A_LibraryManagementSystem
         public Window_Popup_ReturnBook()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle; //make unresizable 
         }
 
         public Window_Popup_ReturnBook(int _book_id)
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle; //make unresizable 
             
             transaction =  EntityBroker.getLastTransationByBookID(_book_id);
             book = EntityBroker.getBookByBookID(_book_id);
@@ -39,6 +41,8 @@ namespace Team6A_LibraryManagementSystem
             bookmodel = EntityBroker.getBookModelByID(book.BookModelID);
 
             calculateCharge();
+
+            lblBookTitle.Text = bookmodel.BookTitle;
 
             lblBookIDValue.Text = book.BookID.ToString();
             lblMemberNameValue.Text = member.MemberName;

@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.btnReturn = new System.Windows.Forms.Button();
+            this.lblBookTitle = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lblBookID = new System.Windows.Forms.Label();
             this.lblBookIDValue = new System.Windows.Forms.Label();
@@ -39,10 +41,28 @@
             this.lblRentDateValue = new System.Windows.Forms.Label();
             this.lblCharge = new System.Windows.Forms.Label();
             this.lblChargeValue = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnReturn = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // btnReturn
+            // 
+            this.btnReturn.Location = new System.Drawing.Point(296, 251);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(75, 23);
+            this.btnReturn.TabIndex = 2;
+            this.btnReturn.Text = "Return";
+            this.btnReturn.UseVisualStyleBackColor = true;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
+            // 
+            // lblBookTitle
+            // 
+            this.lblBookTitle.AutoSize = true;
+            this.lblBookTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBookTitle.Location = new System.Drawing.Point(58, 28);
+            this.lblBookTitle.Name = "lblBookTitle";
+            this.lblBookTitle.Size = new System.Drawing.Size(103, 22);
+            this.lblBookTitle.TabIndex = 1;
+            this.lblBookTitle.Text = "(Book Title)";
             // 
             // tableLayoutPanel1
             // 
@@ -160,35 +180,17 @@
             this.lblChargeValue.TabIndex = 9;
             this.lblChargeValue.Text = "(Charge Value)";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(72, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "label1";
-            // 
-            // btnReturn
-            // 
-            this.btnReturn.Location = new System.Drawing.Point(296, 251);
-            this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(75, 23);
-            this.btnReturn.TabIndex = 2;
-            this.btnReturn.Text = "Return";
-            this.btnReturn.UseVisualStyleBackColor = true;
-            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
-            // 
             // Window_Popup_ReturnBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(612, 358);
             this.Controls.Add(this.btnReturn);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblBookTitle);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.MinimizeBox = false;
             this.Name = "Window_Popup_ReturnBook";
-            this.Text = "Window_Transaction_ReturnBook";
+            this.Text = "Lend Book - Library Management System (Team 6A)";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -207,7 +209,7 @@
         private System.Windows.Forms.Label lblMemberNameValue;
         private System.Windows.Forms.Label lblRentDate;
         private System.Windows.Forms.Label lblRentDateValue;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblBookTitle;
         private System.Windows.Forms.Button btnReturn;
         private System.Windows.Forms.Label lblCharge;
         private System.Windows.Forms.Label lblChargeValue;

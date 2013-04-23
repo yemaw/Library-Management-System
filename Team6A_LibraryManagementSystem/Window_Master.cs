@@ -14,7 +14,7 @@ namespace Team6A_LibraryManagementSystem
         public Window_Master()
         {
             InitializeComponent();
-            //this.FormBorderStyle = FormBorderStyle.FixedSingle; //make unresizable 
+            this.FormBorderStyle = FormBorderStyle.FixedSingle; //make unresizable 
         }
         
 
@@ -74,7 +74,7 @@ namespace Team6A_LibraryManagementSystem
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Team 6A \n Ruby \n Nay Chi \n DJ \n Ye Maw");
+            MessageBox.Show("Developed by Team 6A (NUS - ISS - SA36) \n(version 1.0)\n\n - Ruby \n - Nay Chi \n - DJ \n - Ye Maw");
         }
 
         private void monthlyReportToolStripMenuItem_Click(object sender, EventArgs e)
@@ -93,6 +93,18 @@ namespace Team6A_LibraryManagementSystem
         {
             Report_TotalMembersConsumePieChatReport report = new Report_TotalMembersConsumePieChatReport();
             report.Show();
+        }
+
+        private void helpToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Library Management System. \n ");
+        }
+
+        private void lendBookToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Window_Popup_LendBook w = new Window_Popup_LendBook();
+            w.setMainWindowRefrence(this);
+            w.Show();
         }
 
 

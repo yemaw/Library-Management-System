@@ -41,14 +41,14 @@
             this.crystalReportViewer1.Location = new System.Drawing.Point(0, 0);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
             this.crystalReportViewer1.ReportSource = this.MemberBookLastRentReport1;
-            this.crystalReportViewer1.Size = new System.Drawing.Size(851, 520);
+            this.crystalReportViewer1.Size = new System.Drawing.Size(1143, 592);
             this.crystalReportViewer1.TabIndex = 0;
             // 
             // Report_MemberBookLastRentCrossTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(851, 520);
+            this.ClientSize = new System.Drawing.Size(1143, 592);
             this.Controls.Add(this.crystalReportViewer1);
             this.Name = "Report_MemberBookLastRentCrossTab";
             this.Text = "Report_MemberBookLastRentCrossTab";

@@ -14,8 +14,7 @@ namespace Team6A_LibraryManagementSystem
         LibraryDBEntities entity;
         DataTable dt;
         Window_Master MainWindowObject;
-        //Window_Popup_Details ContainerWindowObject;
-
+        
         public ucListBooks()
         {
             InitializeComponent();
@@ -36,23 +35,9 @@ namespace Team6A_LibraryManagementSystem
         {
             MainWindowObject = window;
         }
-
-        //public void setContainerWindowRefrence(Window_Popup_Details window)
-        //{
-        //    ContainerWindowObject = window;
-        //}
-
+        
         private void ucListBooks_Load(object sender, EventArgs e)
-        {
-            
-
-           // var query = from bm in entity.BooksModels
-           //             select new {bm.BookTitle};
-
-           //int i = entity.BooksModels.Where(x => x.BookModelId == 1).First().Books.Count;
-
-           //txtSearchByBookID.Text = i.ToString();
-            
+        {    
             var bookmodels = EntityBroker.getBooksModels();
             dt.Rows.Clear();
             foreach (BooksModel bookmodel in bookmodels)
@@ -69,8 +54,7 @@ namespace Team6A_LibraryManagementSystem
             }
             
             dgvBooksList.DataSource = dt;
-            dgvBooksList.Refresh();
-            
+            dgvBooksList.Refresh();   
         }
 
         private void dgvBooksList_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -125,9 +109,6 @@ namespace Team6A_LibraryManagementSystem
                 w.setMainWindowRefrence(MainWindowObject);
                 w.Show();
             }
-           
-            
-
         }
 
         private void btnSearchByBookTitle_Click(object sender, EventArgs e)
@@ -150,7 +131,6 @@ namespace Team6A_LibraryManagementSystem
             dgvBooksList.DataSource = dt;
         }
 
-        //-----------------------------------------------------------------------------------------------------
         private void llbClearSearchBookByTitle_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             txtSearchByBookTitle.Text = "";
@@ -161,14 +141,9 @@ namespace Team6A_LibraryManagementSystem
             MainWindowObject.RequestContentChange(booklist);
         }
 
-       
-
-        
-
-        
-
-        
-
-
+        private void llbClearSearchByBookID_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            txtSearchByBookID.Text = "";
+        }
     }
 }

@@ -57,8 +57,8 @@
             // lblBookTitlePageTitle
             // 
             this.lblBookTitlePageTitle.AutoSize = true;
-            this.lblBookTitlePageTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBookTitlePageTitle.Location = new System.Drawing.Point(39, 0);
+            this.lblBookTitlePageTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBookTitlePageTitle.Location = new System.Drawing.Point(41, -1);
             this.lblBookTitlePageTitle.Name = "lblBookTitlePageTitle";
             this.lblBookTitlePageTitle.Size = new System.Drawing.Size(122, 26);
             this.lblBookTitlePageTitle.TabIndex = 3;
@@ -85,7 +85,7 @@
             this.tableLayoutPanel1.Controls.Add(this.txtRentalPricePerDay, 1, 6);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 8);
             this.tableLayoutPanel1.Controls.Add(this.maxAvaiableDaysToRent, 1, 8);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(47, 29);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(47, 34);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 9;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.20513F));
@@ -235,7 +235,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(364, 302);
+            this.btnSave.Location = new System.Drawing.Point(364, 307);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 6;
@@ -249,19 +249,18 @@
             this.dgvListOfCopies.AllowUserToDeleteRows = false;
             this.dgvListOfCopies.AllowUserToOrderColumns = true;
             this.dgvListOfCopies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListOfCopies.Location = new System.Drawing.Point(23, 328);
+            this.dgvListOfCopies.Location = new System.Drawing.Point(23, 334);
             this.dgvListOfCopies.Name = "dgvListOfCopies";
             this.dgvListOfCopies.ReadOnly = true;
             this.dgvListOfCopies.Size = new System.Drawing.Size(460, 110);
             this.dgvListOfCopies.TabIndex = 7;
             this.dgvListOfCopies.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListOfCopies_CellClick);
-            this.dgvListOfCopies.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListOfCopies_CellContentClick);
             // 
             // lblListOfCopies
             // 
             this.lblListOfCopies.AutoSize = true;
             this.lblListOfCopies.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblListOfCopies.Location = new System.Drawing.Point(22, 306);
+            this.lblListOfCopies.Location = new System.Drawing.Point(22, 311);
             this.lblListOfCopies.Name = "lblListOfCopies";
             this.lblListOfCopies.Size = new System.Drawing.Size(80, 15);
             this.lblListOfCopies.TabIndex = 8;
@@ -269,11 +268,11 @@
             // 
             // btnAddNew
             // 
-            this.btnAddNew.Location = new System.Drawing.Point(284, 302);
+            this.btnAddNew.Location = new System.Drawing.Point(238, 307);
             this.btnAddNew.Name = "btnAddNew";
-            this.btnAddNew.Size = new System.Drawing.Size(75, 23);
+            this.btnAddNew.Size = new System.Drawing.Size(121, 23);
             this.btnAddNew.TabIndex = 9;
-            this.btnAddNew.Text = "Add New";
+            this.btnAddNew.Text = "Add New Book Copy";
             this.btnAddNew.UseVisualStyleBackColor = true;
             this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
             // 

@@ -12,17 +12,11 @@ namespace Team6A_LibraryManagementSystem
     public partial class ucListMember : ucList
     {
         Window_Master MainWindowObject;
-        //Window_Popup_Details ContainerWindowObject;
 
         public void setMainWindowRefrence(Window_Master window)
         {
             MainWindowObject = window;
         }
-
-        //public void setContainerWindowRefrence(Window_Popup_Details window)
-        //{
-        //    ContainerWindowObject = window;
-        //}
 
         public ucListMember()
         {
@@ -32,7 +26,6 @@ namespace Team6A_LibraryManagementSystem
         private void ucListMember_Load(object sender, EventArgs e)
         {
             LibraryDBEntities le = new LibraryDBEntities();
-            //label1.Text = le.BooksModels.ToString();
 
             LibraryDBEntities context = new LibraryDBEntities();
 

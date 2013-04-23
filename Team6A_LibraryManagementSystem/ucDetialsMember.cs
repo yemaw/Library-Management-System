@@ -64,7 +64,11 @@ namespace Team6A_LibraryManagementSystem
         private void btnSave_Click(object sender, EventArgs e)
         {
             int i = 0;
-
+            if (txtMemberName.Text == "") {
+                MessageBox.Show("Member Name shouldn't be black.");
+                return;
+            }
+            
             if (member_id > 0)
             {
                 member.MemberName = txtMemberName.Text;
@@ -90,7 +94,7 @@ namespace Team6A_LibraryManagementSystem
 
             if (i == 1)
             {
-                MessageBox.Show("Book Information Saved");
+                MessageBox.Show("Member Information Saved");
                 //#TODO::
                 //ucListMember ml = new ucListMember();
                 //ml.setMainWindowRefrence(MainWindowObject);

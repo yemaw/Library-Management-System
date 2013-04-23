@@ -44,8 +44,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(562, 478);
             this.Controls.Add(this.panelPopup);
+            this.MaximizeBox = false;
             this.Name = "Window_Popup_Details";
-            this.Text = "Window_Popup_Details";
+            this.Text = "Library Management System (Team 6A)";
             this.ResumeLayout(false);
 
         }

@@ -36,7 +36,7 @@
             // 
             this.imgLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.imgLogo.Image = global::Team6A_LibraryManagementSystem.Properties.Resources.logo;
-            this.imgLogo.Location = new System.Drawing.Point(673, 22);
+            this.imgLogo.Location = new System.Drawing.Point(663, 22);
             this.imgLogo.Name = "imgLogo";
             this.imgLogo.Size = new System.Drawing.Size(100, 50);
             this.imgLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

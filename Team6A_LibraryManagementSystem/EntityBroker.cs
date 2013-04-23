@@ -106,7 +106,7 @@ namespace Team6A_LibraryManagementSystem
         public static Member getMemberByMemberID(int _member_id) {
             LibraryDBEntities entity = new LibraryDBEntities();
 
-            Member m = entity.Members.Where(x => x.MemberID == _member_id).First();
+            Member m = entity.Members.Where(x => x.MemberID == _member_id).SingleOrDefault();
             return m;
         }
 

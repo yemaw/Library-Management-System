@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.gbSearchByBookID = new System.Windows.Forms.GroupBox();
+            this.llbClearSearchByBookID = new System.Windows.Forms.LinkLabel();
             this.txtSearchByBookID = new System.Windows.Forms.TextBox();
             this.btnSearchByBookID = new System.Windows.Forms.Button();
             this.gbSearchByBookTitle = new System.Windows.Forms.GroupBox();
@@ -43,6 +44,7 @@
             // 
             // gbSearchByBookID
             // 
+            this.gbSearchByBookID.Controls.Add(this.llbClearSearchByBookID);
             this.gbSearchByBookID.Controls.Add(this.txtSearchByBookID);
             this.gbSearchByBookID.Controls.Add(this.btnSearchByBookID);
             this.gbSearchByBookID.Location = new System.Drawing.Point(13, 10);
@@ -50,7 +52,18 @@
             this.gbSearchByBookID.Size = new System.Drawing.Size(275, 85);
             this.gbSearchByBookID.TabIndex = 0;
             this.gbSearchByBookID.TabStop = false;
-            this.gbSearchByBookID.Text = "Search by BookID";
+            this.gbSearchByBookID.Text = "Search by BookID to Lend";
+            // 
+            // llbClearSearchByBookID
+            // 
+            this.llbClearSearchByBookID.AutoSize = true;
+            this.llbClearSearchByBookID.Location = new System.Drawing.Point(197, 59);
+            this.llbClearSearchByBookID.Name = "llbClearSearchByBookID";
+            this.llbClearSearchByBookID.Size = new System.Drawing.Size(31, 13);
+            this.llbClearSearchByBookID.TabIndex = 6;
+            this.llbClearSearchByBookID.TabStop = true;
+            this.llbClearSearchByBookID.Text = "Clear";
+            this.llbClearSearchByBookID.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llbClearSearchByBookID_LinkClicked);
             // 
             // txtSearchByBookID
             // 
@@ -116,6 +129,7 @@
             this.dgvBooksList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBooksList.Location = new System.Drawing.Point(13, 118);
             this.dgvBooksList.Name = "dgvBooksList";
+            this.dgvBooksList.ReadOnly = true;
             this.dgvBooksList.Size = new System.Drawing.Size(760, 243);
             this.dgvBooksList.TabIndex = 4;
             this.dgvBooksList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBooksList_CellClick);
@@ -152,5 +166,6 @@
         private System.Windows.Forms.Button btnSearchByBookTitle;
         private System.Windows.Forms.DataGridView dgvBooksList;
         private System.Windows.Forms.LinkLabel llbClearSearchBookByTitle;
+        private System.Windows.Forms.LinkLabel llbClearSearchByBookID;
     }
 }
