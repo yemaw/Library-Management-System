@@ -41,7 +41,7 @@ namespace Team6A_LibraryManagementSystem
             bookmodel.setMainWindowRefrence(this);
             Window_Popup_Details pd = new Window_Popup_Details(bookmodel);
             bookmodel.setParentWindowRefrence(pd);
-            pd.Show();
+            pd.ShowDialog();
         }
 
         private void memberToolStripMenuItem_Click(object sender, EventArgs e)
@@ -51,7 +51,7 @@ namespace Team6A_LibraryManagementSystem
             Window_Popup_Details pd = new Window_Popup_Details(ucdm);
             ucdm.setParentWindowRefrence(pd);
 
-            pd.Show();
+            pd.ShowDialog();
         }
 
         private void advanceSearchToolStripMenuItem_Click(object sender, EventArgs e)
@@ -104,7 +104,7 @@ namespace Team6A_LibraryManagementSystem
         {
             Window_Popup_LendBook w = new Window_Popup_LendBook();
             w.setMainWindowRefrence(this);
-            w.Show();
+            w.ShowDialog();
         }
 
 
