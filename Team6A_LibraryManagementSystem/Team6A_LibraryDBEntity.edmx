@@ -305,7 +305,7 @@
         <EntityTypeShape EntityType="Team6A_LibraryDBModel.Book" Width="1.5" PointX="3" PointY="1.5" Height="2.1496386321385703" IsExpanded="true" />
         <EntityTypeShape EntityType="Team6A_LibraryDBModel.BooksModel" Width="1.5" PointX="0.75" PointY="1" Height="3.2169909022251759" IsExpanded="true" />
         <EntityTypeShape EntityType="Team6A_LibraryDBModel.LibTran" Width="1.5" PointX="5.25" PointY="1.25" Height="2.7900499941905341" IsExpanded="true" />
-        <EntityTypeShape EntityType="Team6A_LibraryDBModel.Member" Width="1.5" PointX="3" PointY="5.25" Height="2.5765795401732117" IsExpanded="true" />
+        <EntityTypeShape EntityType="Team6A_LibraryDBModel.Member" Width="1.5" PointX="3" PointY="4.5" Height="2.5765795401732117" IsExpanded="true" />
         <AssociationConnector Association="Team6A_LibraryDBModel.FK_Books_BooksModels" ManuallyRouted="false">
           <ConnectorPoint PointX="2.25" PointY="2.5748193160692852" />
           <ConnectorPoint PointX="3" PointY="2.5748193160692852" />
@@ -315,8 +315,8 @@
           <ConnectorPoint PointX="5.25" PointY="2.5748193160692852" />
         </AssociationConnector>
         <AssociationConnector Association="Team6A_LibraryDBModel.FK_LibTrans_Members" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="6.5382897700866058" />
-          <ConnectorPoint PointX="6" PointY="6.5382897700866058" />
+          <ConnectorPoint PointX="4.5" PointY="5.7882897700866058" />
+          <ConnectorPoint PointX="6" PointY="5.7882897700866058" />
           <ConnectorPoint PointX="6" PointY="4.0400499941905341" />
         </AssociationConnector>
       </Diagram>

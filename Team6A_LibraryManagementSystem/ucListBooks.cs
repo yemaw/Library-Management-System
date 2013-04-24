@@ -72,7 +72,7 @@ namespace Team6A_LibraryManagementSystem
                 ucdb.setWinObject(pd);
                 ucdb.setMainWindowRefrence(MainWindowObject);
                 ucdb.setParentWindowRefrence(pd);
-                pd.Show();
+                pd.ShowDialog();
             }
         }
 
@@ -101,13 +101,13 @@ namespace Team6A_LibraryManagementSystem
             {
                 Window_Popup_LendBook w = new Window_Popup_LendBook(_book_id);
                 w.setMainWindowRefrence(MainWindowObject);
-                w.Show();
+                w.ShowDialog();
             }
             else if (_book.BookStatus == 0)
             {
                 Window_Popup_ReturnBook w = new Window_Popup_ReturnBook(_book_id);
                 w.setMainWindowRefrence(MainWindowObject);
-                w.Show();
+                w.ShowDialog();
             }
         }
 
@@ -134,11 +134,14 @@ namespace Team6A_LibraryManagementSystem
         private void llbClearSearchBookByTitle_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             txtSearchByBookTitle.Text = "";
-            
-            ucListBooks booklist = new ucListBooks();
-            booklist.setMainWindowRefrence(MainWindowObject);
-            
-            MainWindowObject.RequestContentChange(booklist);
+            try
+            {
+                ucListBooks booklist = new ucListBooks();
+                booklist.setMainWindowRefrence(MainWindowObject);
+
+                MainWindowObject.RequestContentChange(booklist);
+            }
+            catch { }
         }
 
         private void llbClearSearchByBookID_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

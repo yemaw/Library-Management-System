@@ -50,8 +50,8 @@ namespace Team6A_LibraryManagementSystem
                 ucdm.setMainWindowRefrence(MainWindowObject);
                 Window_Popup_Details pd = new Window_Popup_Details(ucdm);
                 ucdm.setParentWindowRefrence(pd);
-                
-                pd.Show();
+
+                pd.ShowDialog();
             }
         }
     }

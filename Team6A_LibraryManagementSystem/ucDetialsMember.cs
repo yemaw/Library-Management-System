@@ -54,7 +54,8 @@ namespace Team6A_LibraryManagementSystem
                 txtNIRCNumber.Text = member.NIRC;
                 txtEmail.Text = member.Email;
             }
-            else {
+            else
+            {
                 lblMemberIDValue.Text = "";
             }
             

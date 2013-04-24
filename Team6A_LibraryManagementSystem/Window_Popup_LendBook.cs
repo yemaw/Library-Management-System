@@ -70,8 +70,8 @@ namespace Team6A_LibraryManagementSystem
                 MessageBox.Show("Book is not avaiable to rent.");
                 return;
             }
-     
-            Member member = new Member();
+
+            Member member;
             member = EntityBroker.getMemberByMemberID(member_id);
             if (member == null) {
                 MessageBox.Show("MemberID doesn't exit.");
